@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="stylesheet" href="css/style.css">
+   <svg style="display:none">
+      <symbol id="facebook" viewBox="0 0 310 310">
+         <g>
+            <path d="M81.703,165.106h33.981V305c0,2.762,2.238,5,5,5h57.616c2.762,0,5-2.238,5-5V165.765h39.064
+               c2.54,0,4.677-1.906,4.967-4.429l5.933-51.502c0.163-1.417-0.286-2.836-1.234-3.899c-0.949-1.064-2.307-1.673-3.732-1.673h-44.996
+               V71.978c0-9.732,5.24-14.667,15.576-14.667c1.473,0,29.42,0,29.42,0c2.762,0,5-2.239,5-5V5.037c0-2.762-2.238-5-5-5h-40.545
+               C187.467,0.023,186.832,0,185.896,0c-7.035,0-31.488,1.381-50.804,19.151c-21.402,19.692-18.427,43.27-17.716,47.358v37.752H81.703
+               c-2.762,0-5,2.238-5,5v50.844C76.703,162.867,78.941,165.106,81.703,165.106z"/>
+         </g>
+      </symbol>
+      <symbol id="twitter" viewBox="0 0 310 310">
+         <g>
+            <path  d="M302.973,57.388c-4.87,2.16-9.877,3.983-14.993,5.463c6.057-6.85,10.675-14.91,13.494-23.73
+               c0.632-1.977-0.023-4.141-1.648-5.434c-1.623-1.294-3.878-1.449-5.665-0.39c-10.865,6.444-22.587,11.075-34.878,13.783
+               c-12.381-12.098-29.197-18.983-46.581-18.983c-36.695,0-66.549,29.853-66.549,66.547c0,2.89,0.183,5.764,0.545,8.598
+               C101.163,99.244,58.83,76.863,29.76,41.204c-1.036-1.271-2.632-1.956-4.266-1.825c-1.635,0.128-3.104,1.05-3.93,2.467
+               c-5.896,10.117-9.013,21.688-9.013,33.461c0,16.035,5.725,31.249,15.838,43.137c-3.075-1.065-6.059-2.396-8.907-3.977
+               c-1.529-0.851-3.395-0.838-4.914,0.033c-1.52,0.871-2.473,2.473-2.513,4.224c-0.007,0.295-0.007,0.59-0.007,0.889
+               c0,23.935,12.882,45.484,32.577,57.229c-1.692-0.169-3.383-0.414-5.063-0.735c-1.732-0.331-3.513,0.276-4.681,1.597
+               c-1.17,1.32-1.557,3.16-1.018,4.84c7.29,22.76,26.059,39.501,48.749,44.605c-18.819,11.787-40.34,17.961-62.932,17.961
+               c-4.714,0-9.455-0.277-14.095-0.826c-2.305-0.274-4.509,1.087-5.294,3.279c-0.785,2.193,0.047,4.638,2.008,5.895
+               c29.023,18.609,62.582,28.445,97.047,28.445c67.754,0,110.139-31.95,133.764-58.753c29.46-33.421,46.356-77.658,46.356-121.367
+               c0-1.826-0.028-3.67-0.084-5.508c11.623-8.757,21.63-19.355,29.773-31.536c1.237-1.85,1.103-4.295-0.33-5.998
+               C307.394,57.037,305.009,56.486,302.973,57.388z"/>
+         </g>
+
+      </symbol>
+      <symbol id="linkedin"viewBox="0 0 382 382">
+         <g>
+            <path style="fill:#2046b3 ;" d="M347.445,0H34.555C15.471,0,0,15.471,0,34.555v312.889C0,366.529,15.471,382,34.555,382h312.889
+               C366.529,382,382,366.529,382,347.444V34.555C382,15.471,366.529,0,347.445,0z M118.207,329.844c0,5.554-4.502,10.056-10.056,10.056
+               H65.345c-5.554,0-10.056-4.502-10.056-10.056V150.403c0-5.554,4.502-10.056,10.056-10.056h42.806
+               c5.554,0,10.056,4.502,10.056,10.056V329.844z M86.748,123.432c-22.459,0-40.666-18.207-40.666-40.666S64.289,42.1,86.748,42.1
+               s40.666,18.207,40.666,40.666S109.208,123.432,86.748,123.432z M341.91,330.654c0,5.106-4.14,9.246-9.246,9.246H286.73
+               c-5.106,0-9.246-4.14-9.246-9.246v-84.168c0-12.556,3.683-55.021-32.813-55.021c-28.309,0-34.051,29.066-35.204,42.11v97.079
+               c0,5.106-4.139,9.246-9.246,9.246h-44.426c-5.106,0-9.246-4.14-9.246-9.246V149.593c0-5.106,4.14-9.246,9.246-9.246h44.426
+               c5.106,0,9.246,4.14,9.246,9.246v15.655c10.497-15.753,26.097-27.912,59.312-27.912c73.552,0,73.131,68.716,73.131,106.472
+               L341.91,330.654L341.91,330.654z"/>
+         </g>
+         
+      </symbol>
+      <symbol id="linkedin2"viewBox="0 0 382 382">
+         <g>
+            <path style="fill:#000000 ;" d="M347.445,0H34.555C15.471,0,0,15.471,0,34.555v312.889C0,366.529,15.471,382,34.555,382h312.889
+               C366.529,382,382,366.529,382,347.444V34.555C382,15.471,366.529,0,347.445,0z M118.207,329.844c0,5.554-4.502,10.056-10.056,10.056
+               H65.345c-5.554,0-10.056-4.502-10.056-10.056V150.403c0-5.554,4.502-10.056,10.056-10.056h42.806
+               c5.554,0,10.056,4.502,10.056,10.056V329.844z M86.748,123.432c-22.459,0-40.666-18.207-40.666-40.666S64.289,42.1,86.748,42.1
+               s40.666,18.207,40.666,40.666S109.208,123.432,86.748,123.432z M341.91,330.654c0,5.106-4.14,9.246-9.246,9.246H286.73
+               c-5.106,0-9.246-4.14-9.246-9.246v-84.168c0-12.556,3.683-55.021-32.813-55.021c-28.309,0-34.051,29.066-35.204,42.11v97.079
+               c0,5.106-4.139,9.246-9.246,9.246h-44.426c-5.106,0-9.246-4.14-9.246-9.246V149.593c0-5.106,4.14-9.246,9.246-9.246h44.426
+               c5.106,0,9.246,4.14,9.246,9.246v15.655c10.497-15.753,26.097-27.912,59.312-27.912c73.552,0,73.131,68.716,73.131,106.472
+               L341.91,330.654L341.91,330.654z"/>
+         </g>
+         
+      </symbol>
+
+   </svg>
+
+   <title>Document</title>
+</head>
+
+<body>
+   <header class="header">
+      <div class="container">
+         <div class="header__inner">
+            <div class="header__title">
+               Sublime
+            </div>
+            <div class="header__text">
+               Sublime: A one page responsive wordpress theme
+               suitable for any kind of business representation.
+            </div>
+            <a href="img/Layer_18.png" download="hsldvnk" class="header__subtitle">
+               Download the psd.
+            </a>
+         </div>
+      </div>
+   </header>
+   <div class="logo">
+      <div class="container">
+         <div class="logo__inner">
+            <div class="logo__body">
+               <div class="logo__title">
+                  <span>We</span> create Awesome Games
+               </div>
+               <nav class="logo__nav">
+                  <a href="" class="logo__link">About</a>
+                  <a href="" class="logo__link">Development</a>
+                  <a href="" class="logo__link">Projects</a>
+                  <a href="" class="logo__link">Blog</a>
+               </nav>
+            </div>
+         </div>
+      </div>
+   </div>
+   <div class="about">
+      <div class="container">
+         <div class="about__inner">
+            <div class="about__top">
+               <div class="about__logo">
+                  <div class="about__first">
+                     <span>
+                        About
+                     </span>
+                  </div>
+                  <div class="about__second">
+                     <span class="sublime">
+                        Sublime
+                     </span>
+                  </div>
+               </div>
+               <div class="about__text">
+                  <div class="about__main">
+                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla facilisis molestie dignissim. Nulla
+                     pellentesque et nisi et euismod. Pellentesque quis tristique magna.
+                  </div>
+                  <div class="about__description">
+                     Maecenas est risus, tristique volutpat sagittis vel, feugiat consectetur diam. Suspendisse justo sem,
+                     molestie tincidunt rhoncus vel, molestie ut ligula. Mauris vitae ullamcorper odio. Mauris id enim
+                     gravida, tempor velit non, vehicula lacus. Sed rutrum tempus urna, sed aliquam lectus egestas eu.
+                     Maecenas est risus, tristique volutpat sagittis vel, feugiat consectetur diam. Suspendisse justo sem,
+                     molestie tincidunt rhoncus vel, molestie ut ligula. Mauris vitae ullamcorper odio. Mauris id enim
+                     gravida, tempor velit non, vehicula lacus. Sed rutrum tempus urna, sed aliquam lectus egestas eu
+                  </div>
+               </div>
+            </div>
+            <div class="about__middle">
+               <div class="about__body">
+                  <div class="about__block">
+                     <div class="about__icon">
+                        <img src="img/Layer_8.png" alt="icon">
+                        <img class="console" src="img/Layer_18.png" alt="">
+                     </div>
+                     <div class="about__title">
+                        App Development
+                     </div>
+                     <div class="about__texts">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla facilisis molestie dignissim. Nulla
+                        pellentesque et nisi et euismod. Pellentesque quis tristique magna.
+                     </div>
+                     <div class="about__texts">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla facilisis molestie dignissim. Nulla
+                        pellentesque et nisi et euismod. Pellentesque quis tristique magna.
+                     </div>
+                  </div>
+                  <div class="about__block">
+                     <div class="about__icon">
+                        <img src="img/Layer_8.png" alt="icon">
+                        <img class="console"  src="img/Layer_18.png" alt="">
+                     </div>
+                     <div class="about__title">
+                        Game Design
+                     </div>
+                     <div class="about__texts">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla facilisis molestie dignissim. Nulla
+                        pellentesque et nisi et euismod. Pellentesque quis tristique magna.
+                     </div>
+                     <div class="about__texts">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla facilisis molestie dignissim. Nulla
+                        pellentesque et nisi et euismod. Pellentesque quis tristique magna.
+                     </div>
+                  </div>
+                  <div class="about__block">
+                     <div class="about__icon">
+                        <img src="img/Layer_8.png" alt="icon">
+                        <img class="console"  src="img/Layer_18.png" alt="">
+                     </div>
+                     <div class="about__title">
+                        Content Creation
+                     </div>
+                     <div class="about__texts">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla facilisis molestie dignissim. Nulla
+                        pellentesque et nisi et euismod. Pellentesque quis tristique magna.
+                     </div>
+                     <div class="about__texts">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla facilisis molestie dignissim. Nulla
+                        pellentesque et nisi et euismod. Pellentesque quis tristique magna.
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <div class="about__bottom">
+               <div class="about__foot">
+                  <div class="about__subtitle">
+                     Featured <span>
+                     P</span>rojects
+                  </div>
+                  <nav class="about__nav">
+                     <a href="#" class="about__link">
+                        all works
+                     </a>
+                     <a href="#" class="about__link">
+                        games
+                     </a>
+                     <a href="#" class="about__link">
+                        applications
+                     </a>
+                     <a href="#" class="about__link">
+                        content development
+                     </a>
+                  </nav>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+   <div class="galery">
+      <div class="container">
+         <div class="galery__intro">
+            <div class="galery__photo">
+               <img src="img/galery/Layer_10.jpg" alt="">
+            </div>
+            <div class="galery__photo">
+               <img src="img/galery/Layer_11.jpg" alt="">
+            </div>
+            <div class="galery__photo">
+               <img src="img/galery/Layer_12.jpg" alt="">
+            </div>
+            <div class="galery__photo">
+               <img src="img/galery/Layer_13.jpg" alt="">
+            </div>
+            <div class="galery__photo">
+               <img src="img/galery/Layer_14.jpg" alt="">
+            </div>
+            <div class="galery__photo">
+               <img src="img/galery/Layer_15.jpg" alt="">
+            </div>
+            <div class="galery__photo">
+               <img src="img/galery/Layer_16.jpg" alt="">
+            </div>
+            <div class="galery__photo">
+               <img src="img/galery/Layer_17.jpg" alt="">
+            </div>
+         </div>
+      </div>
+   </div>
+   <div class="process">
+      <div class="container">
+         <div class="process__body">
+            <div class="process__title">Strategic <span>P</span>rocess</div>
+            <div class="process__subtitle">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla facilisis molestie dignissim. Nulla pellentesque et nisi et euismod. Pellentesque quis tristique magna.
+               </div>
+            <div class="process__text">Maecenas est risus, tristique volutpat sagittis vel, feugiat consectetur diam. Suspendisse justo sem, molestie tincidunt rhoncus vel, molestie ut ligula. Mauris vitae ullamcorper odio. Mauris id enim gravida, tempor velit non, vehicula lacus. Sed rutrum tempus urna, sed aliquam lectus egestas eu. Maecenas est risus, tristique volutpat sagittis vel, feugiat consectetur diam. Suspendisse justo sem, molestie tincidunt rhoncus vel, molestie ut ligula. Mauris vitae ullamcorper odio. Mauris id enim gravida, tempor velit non, vehicula lacus. Sed rutrum tempus urna, sed aliquam lectus egestas eu. Maecenas est risus, tristique volutpat sagittis vel, feugiat consectetur diam. Suspendisse justo sem, molestie tincidunt rhoncus vel, molestie ut ligula. Mauris vitae ullamcorper odio. Mauris id enim gravida, tempor velit non, vehicula lacus. Sed rutrum tempus urna, sed aliquam lectus egestas eu. Maecenas est risus, tristique volutpat sagittis vel, feugiat consectetur diam. Suspendisse justo sem, molestie tincidunt rhoncus vel, molestie ut ligula. Mauris vitae ullamcorper odio. Mauris id enim gravida, tempor velit non, vehicula lacus. Sed rutrum tempus urna, sed aliquam lectus egestas eu.</div>
+         </div>
+         <div class="process__main">
+            <div class="process__container">
+               <div class=" process__element">
+                  <img src="img/process/Layer_22.jpg" alt="img">
+               </div>
+               <div class="process__element process__element--text">
+                  <div class="process__name"><span>O</span>ur <span>P</span>rocess</div>
+                  <div class="process__middle">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla facilisis molestie dignissim. Nulla pellentesque et nisi et euismod. Pellentesque quis tristique magna.
+                     </div>
+                  <div class="process__foot">Maecenas est risus, tristique volutpat sagittis vel, feugiat consectetur diam. Suspendisse justo sem, molestie tincidunt rhoncus vel, molestie ut ligula. Mauris vitae ullamcorper odio. Mauris id enim gravida, tempor velit non, vehicula lacus. Sed rutrum tempus urna, sed aliquam lectus egestas eu</div>
+               </div>
+               <div class="process__element process__element--text">
+                  <div class="process__name"><span>M</span>ethod</div>
+                  <div class="process__middle">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla facilisis molestie dignissim. Nulla pellentesque et nisi et euismod. Pellentesque quis tristique magna.
+                     </div>
+                  <div class="process__foot">Maecenas est risus, tristique volutpat sagittis vel, feugiat consectetur diam. Suspendisse justo sem, molestie tincidunt</div>
+                  
+               </div>
+               <div class="process__element">
+                  <img src="img/process/Layer_23.jpg
+                  " alt="img">
+               </div>
+               <div class="process__element process__element">
+                  <img src="img/process/Layer_24.jpg" alt="img">
+               </div>
+               <div class="process__element process__element--text">
+                  <div class="process__name"><span>O</span>utcome</div>
+                  <div class="process__middle">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla facilisis molestie dignissim. Nulla pellentesque et nisi et euismod. Pellentesque quis tristique magna.
+                     </div>
+                  <div class="process__foot">Maecenas est risus, tristique volutpat sagittis vel, feugiat consectetur diam. Suspendisse justo sem, molestie tincidunt</div>
+                  
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+   <div class="services">
+      <div class="container">
+         <div class="services__inner">
+            <div class="services__top">
+               <h1>
+                  Services <span>P</span>rovided
+               </h1>
+            </div>
+            <div class="services__body">
+               <div class="services__container">
+                  <div class="services__block">
+                     <div class="services__title">
+                        App Development
+                     </div>
+                     <div class="services__text">
+                        Maecenas est risus, tristique volutpat sagittis vel, feugiat consectetur diam. Suspendisse justo sem, molestie tincidunt  Maecenas est risus, tristique volutpat sagittis vel, feugiat consectetur diam. Suspendisse justo sem, molestie tincidunt 
+                     </div>
+                  </div>
+                  <div class="services__block">
+                     <div class="services__title">
+                        Game Development
+                     </div>
+                     <div class="services__text">
+                        Maecenas est risus, tristique volutpat sagittis vel, feugiat consectetur diam. Suspendisse justo sem, molestie tincidunt  Maecenas est risus, tristique volutpat sagittis vel, feugiat consectetur diam. Suspendisse justo sem, molestie tincidunt 
+                     </div>
+                  </div>
+                  <div class="services__block">
+                     <div class="services__title">
+                        App Design
+                     </div>
+                     <div class="services__text">
+                        Maecenas est risus, tristique volutpat sagittis vel, feugiat consectetur diam. Suspendisse justo sem, molestie tincidunt  Maecenas est risus, tristique volutpat sagittis vel, feugiat consectetur diam. Suspendisse justo sem, molestie tincidunt 
+                     </div>
+                  </div>
+                  <div class="services__block">
+                     <div class="services__title">
+                        Game Design
+                     </div>
+                     <div class="services__text">
+                        Maecenas est risus, tristique volutpat sagittis vel, feugiat consectetur diam. Suspendisse justo sem, molestie tincidunt  Maecenas est risus, tristique volutpat sagittis vel, feugiat consectetur diam. Suspendisse justo sem, molestie tincidunt 
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+   <div class="team">
+      <div class="container">
+         <div class="team__inner">
+            <div class="team__logo">
+               <h1>
+                  Our <span>T</span>eam
+               </h1>
+            </div>
+            <div class="team__body">
+               <div class="team__top">
+                  <div class="team__title">
+                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla facilisis molestie dignissim. Nulla pellentesque et nisi et euismod. Pellentesque quis tristique magna.
+                  </div>
+                  <div class="team__text">
+                     Maecenas est risus, tristique volutpat sagittis vel, feugiat consectetur diam. Suspendisse justo sem, molestie tincidunt 
+                  </div>
+               </div>
+               <div class="team__main">
+                  <div class="team__block">
+                     <div class="team__photo">
+                        <img src="img/team/Layer_28.jpg" alt="team">
+                     </div>
+                     <div class="team__name">
+                        John Doe
+                     </div>
+                     <div class="team__profession">
+                        CoFounder/CEO
+                     </div>
+                  </div>
+                  <div class="team__block">
+                     <div class="team__photo">
+                        <img src="img/team/Layer_29.jpg" alt="team">
+                     </div>
+                     <div class="team__name">
+                        John Doe
+                     </div>
+                     <div class="team__profession">
+                        process Manager
+                     </div>
+                  </div>
+                  <div class="team__block">
+                     <div class="team__photo">
+                        <img src="img/team/Layer_30.jpg" alt="team">
+                     </div>
+                     <div class="team__name">
+                        John Doe
+                     </div>
+                     <div class="team__profession">
+                        Sales President
+                     </div>
+                  </div>
+                  <div class="team__block">
+                     <div class="team__photo">
+                        <img src="img/team/Layer_31.jpg" alt="team">
+                     </div>
+                     <div class="team__name">
+                        John Doe
+                     </div>
+                     <div class="team__profession">
+                        Developer
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+   <div class="testimonials">
+      <div class="container">
+         <div class="testimonials__inner">
+            <div class="testimonials__logo">
+               <span>
+               Testimonials
+               </span>
+            </div>
+            <div class="testimonials__body">
+               <div class="testimonials__left">
+                  <div class="testimonials__title">
+                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla facilisis molestie dignissim. Nulla pellentesque et nisi et euismod. Pellentesque quis tristique magna.
+
+                     
+                  </div>
+                  <div class="testimonials__text">
+                     Maecenas est risus, tristique volutpat sagittis vel, feugiat consectetur diam. Suspendisse justo sem, molestie tincidunt 
+                  </div>
+               </div>
+               <div class="testimonials__right">
+                  <div class="testimonials__photo">
+                     <img src="img/testimonials/Layer_36.png" alt="">
+                  </div>
+                  <div class="testimonials__name">
+                     John Doe
+                  </div>
+                  <div class="testimonials__professional">
+                     CoFounder/CEO
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+   <div class="blogs">
+      <div class="container">
+         <div class="blogs__inner">
+            <div class="blogs__nav">
+               <div class="blogs__logo">
+                  <span>
+                     Blogs
+                  </span>
+               </div>
+               <span class="blogs__links">
+                  <a href="#" class="blogs__link">
+                     Latest Posts
+                  </a>
+                  <a href="#" class="blogs__link">
+                     What’s Out There
+                  </a>
+                  <a href="#" class="blogs__link">
+                     App Design
+                  </a>
+                  <a href="#" class="blogs__link">
+                     App Development
+                  </a>
+                  <a href="#" class="blogs__link">
+                     Design Solutions
+                  </a>
+                  <a href="#" class="blogs__link">
+                     Quality Assurance
+                  </a>
+                  <a href="#" class="blogs__link">
+                     Development Mode
+                  </a>
+               </span>
+            </div>
+            <div class="blogs__body">
+               <div class="blogs__block">
+                  <div class="blogs__photo">
+                     <img src="img/blogs/Layer_38.jpg" alt="blogs">
+                  </div>
+                  <div class="blogs__name">
+                     July 4th 2016
+                  </div>
+                  <div class="blogs__title">
+                     Lorem ipsum dolor sit amet, 
+                  </div>
+                  <div class="blogs__subtitle">
+                     Lorem ipsum dolor sit amet, 
+                     consectetur adipiscing elit. 
+                     Nulla facilisis molestie dignissim. 
+                  </div>
+               </div>
+               <div class="blogs__block">
+                  <div class="blogs__photo">
+                     <img src="img/blogs/Layer_39.jpg" alt="blogs">
+                  </div>
+                  <div class="blogs__name">
+                     July 20th 2016
+                  </div>
+                  <div class="blogs__title">
+                     Lorem ipsum dolor sit amet, 
+                  </div>
+                  <div class="blogs__subtitle">
+                     Lorem ipsum dolor sit amet, 
+                     consectetur adipiscing elit. 
+                     Nulla facilisis molestie dignissim. 
+                  </div>
+               </div>
+               <div class="blogs__block">
+                  <div class="blogs__photo">
+                     <img src="img/blogs/Layer_40.jpg" alt="blogs">
+                  </div>
+                  <div class="blogs__name">
+                     May 6th 2016
+                  </div>
+                  <div class="blogs__title">
+                     Lorem ipsum dolor sit amet, 
+                  </div>
+                  <div class="blogs__subtitle">
+                     Lorem ipsum dolor sit amet, 
+                     consectetur adipiscing elit. 
+                     Nulla facilisis molestie dignissim. 
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+   <div class="contact">
+      <div class="container">
+         <div class="contact__inner">
+            <div class="contact__map">
+               <img src="img/contact/Layer_52.jpg" alt="">
+            </div>
+            <div class="contact__body">
+               <!-- <div class="contact__container"> -->
+               
+                  <div class="contact__form">
+                     <div class="contact__title">
+                        <p>
+                           Contact <span>U</span>s
+                        </p>
+                     </div>
+                     <form action="#" class="contact__tap">
+                        <div>
+                           <input placeholder="Your Name" class="name" type="text">
+                        </div>
+                        <div class="river">
+                           <input placeholder="Mobile" class="tel" type="tel" name="tel">
+                           <input placeholder="Email" class="email" type="email" name="email" >
+                        </div>
+                        <div>
+                           <textarea placeholder="Your Message" class="message" name="message" ></textarea>
+                        </div>
+                        <button class="button" type="submit">Send</button>
+
+                     </form>
+                     <div class="contact__middle">
+                        <div class="contact__head">Location Map</div>
+                        <div class="contact__table">
+                           <table>
+                              <tr>
+                                 <th>Address</th>
+                                 <td>Hill Mist garden, Pune, 411 048. India</td>
+                              </tr>
+                              <tr>
+                                 <th>Phone</th>
+                                 <td><a href="tel:+91 12534 67890"  class="contact__info">+91 12534 67890</a></td>
+                              </tr>
+                              <tr>
+                                 <th>Email</th>
+                                 <td><a href="mailto:firkho@firkho.com" type="mail" class="contact__info">firkho@firkho.com</a></td>
+                              </tr>
+                           </table>
+                        </div>
+                     </div>
+                     <div class="contact__line"></div>
+                     <div class="contact__social">
+                        
+                        <a href="twitter.com" class="contact__round">
+                           <svg class="social__icon">
+                              <use xlink:href="#twitter"></use>
+                           </svg>
+                        </a>
+                        <a href="linkedin.com" class="contact__round">
+                           <svg class="social__icon">
+                              <use xlink:href="#linkedin"></use>
+                           </svg>
+                        </a>
+                        <a href="facebook.com" target="_blank" class="contact__round">
+                           <svg class="social__icon">
+                              <use xlink:href="#facebook"></use>
+                           </svg>
+                        </a>
+                     </div>
+                  </div>
+               <!-- </div> -->
+            </div>
+         </div>
+      </div>
+   </div>
+   <footer class="footer">
+      <div class="container">
+         <div class="footer__inner">
+            <div class="footer__left">
+               <div class="footer__logo">Sublime</div>
+               <div class="footer__nav">
+                  <a href="#" class="footer__link">Home</a>
+                  <a href="#" class="footer__link">about sublime</a>
+                  <a href="#" class="footer__link">our works</a>
+                  <a href="#" class="footer__link">services</a>
+                  <a href="#" class="footer__link">team</a>
+                  <a href="#" class="footer__link">testimonials</a>
+                  <a href="#" class="footer__link">blog</a>
+                  <a href="#" class="footer__link">clients</a>
+                  <a href="#" class="footer__link">contact us</a>
+                  <!-- <div class="footer__line"></div> -->
+                  
+               </div>
+               <div class="footer__social">
+                  <a href="twitter.com" class="footer__round">
+                     <svg class="social__icon2">
+                        <use xlink:href="#twitter"></use>
+                     </svg>
+                  </a>
+                  <a href="twitter.com" class="footer__round">
+                     <svg class="social__icon2">
+                        <use xlink:href="#linkedin2"></use>
+                     </svg>
+                  </a>
+                  <a href="facebook.com" class="footer__round">
+                     <svg class="social__icon2">
+                        <use xlink:href="#facebook"></use>
+                     </svg>
+                  </a>
+               </div>
+               
+
+            </div>
+            <div class="footer__right">
+               <div class="footer__name">
+                  <span>We</span> create 
+                  Awesome Games
+               </div>
+               
+            </div>
+            
+         </div>
+      </div>
+   </footer>
+</body>
+</html>
