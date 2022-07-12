@@ -111,12 +111,12 @@ body {
   background: transparent;
 }
 .header__inner {
-  padding: 114px 0px 0px 0px;
+  padding-top: calc(40px + 74 * ((100vw - 320px) / 1600));
 }
 .header__title {
   color: #ffffff;
   font-family: myriad-pro, sans-serif;
-  font-size: 202px;
+  font-size: calc(100px + 102 * ((100vw - 320px) / 1600));
   font-weight: 700;
   font-style: normal;
   letter-spacing: -10px;
