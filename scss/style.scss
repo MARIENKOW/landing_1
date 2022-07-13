@@ -59,14 +59,24 @@ $colorq:#ffc600;
    &::first-letter{
       font-size: 50px;
       color: $colorq;
-      font-style: normal;
-      letter-spacing: normal;
-      line-height: normal;
+      
    }
 }
 body{
    background-color: #010d15;
 }
+
+.container {
+   max-width: 1198px;
+   margin: 0px auto;
+   background-color: #ffffff;
+   overflow: hidden;
+}
+
+//! ///---ELEMENTS---\\\ !\\
+
+/*! ///---ELEMENTS---\\\ !*/
+
 .header {
    min-width: 100%;
    min-height: 100%;
@@ -82,17 +92,19 @@ body{
    }
    &__inner {
       // padding:114px 0px 0px 0px;
-      @include adaptiv-value("padding-top", 114, 40, 0)
+      @include adaptiv-value("padding-top", 114, 25, 1)
    }
 
    &__title {
       color: #ffffff;
+      margin: 0px 0px 0px 5px;
       font-family: myriad-pro, sans-serif;
+      @include adaptiv-value("font-size", 202, 80,1) ;
       // font-size: 202px;
-      @include adaptiv-value("font-size", 202, 100,0);
       font-weight: 700;
       font-style: normal;
-      letter-spacing: -10px;
+      @include adaptiv-value("letter-spacing", -10,-7 ,1 );
+      // letter-spacing: -10px;
       line-height: normal;
       &::first-letter{
          color:$colorq;
@@ -104,10 +116,12 @@ body{
 
    &__text {
       margin: 0px 0px 30px 7px;
-      max-width: 420px;
+      // max-width: 420px;
+      @include adaptiv-value("max-width",420 ,260 ,1 );
       color: #ffffff;
       font-family: myriad-pro-condensed, sans-serif;
-      font-size: 18px;
+      @include adaptiv-value("font-size",18 ,14 ,1 );
+      // font-size: 18px;
       font-weight: 400;
       font-style: normal;
       letter-spacing: normal;
@@ -133,36 +147,43 @@ body{
       text-align: left;
    }
 }
-.container {
-   max-width: 1198px;
-   margin: 0px auto;
-   background-color: #ffffff;
-   overflow: hidden;
-}
+
+//! ///---HEADER---\\\ !\\
+
+/*! ///---HEADER---\\\ !*/
 
 .logo {
-   margin: 500px 0px 0px 0px;
+   // margin: 500px 0px 0px 0px;
+   @include adaptiv-value("margin-top",500 ,250 ,1 );
    position: relative;
    z-index: 2;
 
    &__inner {
       background:top / cover no-repeat url(../img/Layer_5.jpg) ;
-      min-height: 654px;
+      @include adaptiv-value("min-height",654 ,500 ,1 );
    }
    &__body{
-      max-width: 550px;
-      padding:70px 0px  0px 46px;
+      // max-width: 550px;
+      // padding:70px 0px  0px 46px;
+      @include adaptiv-value("max-width",550,200 ,1 );
+
+      @include adaptiv-value("padding-top",70,12 ,1 );
+      @include adaptiv-value("padding-left",46,8 ,1 );
+
    }
    &__title {
-      margin: 0px 0px 60px 0px;
+      @include adaptiv-value("margin-bottom",60 ,15 ,1 );
+      // margin: 0px 0px 60px 0px;
       color: #ffffff;
       font-family: myriad-pro-condensed, sans-serif;
-      font-size: 55px;
+      @include adaptiv-value("font-size",55 ,20 ,1 );
+      // font-size: 55px;
       font-weight: 700;
       font-style: normal;
       letter-spacing: normal;
-      line-height: 48px;
+      // line-height: 48px;
       text-align: left;
+      text-shadow: 0 0 10px #000,0 0 10px #000,0 0 10px #000;
       span{
          color: $colorq;
          font-style: normal;
@@ -175,6 +196,45 @@ body{
       max-width: 360px;
       display: flex;
       justify-content: space-between;
+   }
+   &__burger{
+      display: none;
+      height: 15px;
+      width: 20px;
+      align-items: center;
+      position: relative;
+   }
+   &__center{
+      width: 100%;
+      height: 16%;
+      background-color: $colorq;
+      border-radius: 2px;
+      &::after{
+         content: "";
+         width: 100%;
+         height: 16%;
+
+         background-color: $colorq;
+         position: absolute;
+         bottom: 0px;
+         left: 0;
+         border-radius: 2px;
+
+
+      }
+      &::before{
+         content: "";
+         width: 100%;
+         height: 16%;
+
+         background-color: $colorq;
+         position: absolute;
+         top: 0px;
+         left: 0;
+         border-radius: 2px;
+
+      }
+
    }
 
    &__link {
@@ -195,6 +255,11 @@ body{
       }
    }
 }
+
+//! ///---LOGO---\\\ !\\
+
+/*! ///---LOGO---\\\ !*/
+
 .about {
 
    &__inner{
@@ -437,6 +502,11 @@ body{
       }
    }
 }
+
+//! ///---ABOUT---\\\ !\\
+
+/*! ///---ABOUT---\\\ !*/
+
 .galery {
    min-width: 100%;
    &__intro {
@@ -460,6 +530,10 @@ body{
       }
    }
 }
+
+//! ///---GALERY---\\\ !\\
+
+/*! ///---GALERY---\\\ !*/
 
 .process {
    min-width: 100%;
@@ -569,6 +643,11 @@ body{
 
 	}
 }
+
+//! ///---PROCESS---\\\ !\\
+
+/*! ///---PROCESS---\\\ !*/
+
 .services {
    font-family: myriad-pro, sans-serif;
    color: #fff;
@@ -633,6 +712,11 @@ body{
       line-height: normal;
    }
 }
+
+//! ///---SERVICES---\\\ !\\
+
+/*! ///---SERVICES---\\\ !*/
+
 .team {
    min-width: 100%;
    font-family: myriad-pro, sans-serif;
@@ -725,6 +809,11 @@ body{
       line-height: normal;
    }
 }
+
+//! ///---TEAM---\\\ !\\
+
+/*! ///---TEAM---\\\ !*/
+
 .testimonials {
    min-width: 100%;
    color: #ffffff;
@@ -804,6 +893,10 @@ body{
       
    }
 }
+
+//! ///---TESTIMONILS---\\\ !\\
+
+/*! ///---TESTIMONILS---\\\ !*/
 
 .blogs {
    min-width: 100%;
@@ -916,8 +1009,9 @@ body{
    }
 }
 
-          //!-----BLOGS--------
-         /*!------BLOGS--------*/
+//! ///---BLOGS---\\\ !\\
+
+/*! ///---BLOGS---\\\ !*/
 
 
 .contact {
@@ -1146,10 +1240,11 @@ body{
 
 }
 
-      //   !---------CONTACT---------
-      /*!------------CONTACT---------*/
+//! ///---CONTACT---\\\ !\\
 
-      .footer {
+/*! ///---CONTACT---\\\ !*/
+
+.footer {
    font-family: myriad-pro, sans-serif;
    color: #fff;
 
@@ -1262,8 +1357,19 @@ body{
          }
    }
 
+//! ///---FOOTER---\\\ !\\
 
+/*! ///---FOOTER---\\\ !*/
 
-@media(max-widdth:991){
+@media(max-width:990px){
+   .logo{
+      &__nav{
+         display: none;
+      }
+      &__burger{
+         display: flex;
+      }
+   }
+
 
 }
