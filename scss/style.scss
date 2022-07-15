@@ -209,11 +209,15 @@ body{
       height: 16%;
       background-color: $colorq;
       border-radius: 2px;
+      box-shadow: 0 0 3px #000,0 0 3px #000;
+
+      
+
       &::after{
          content: "";
          width: 100%;
          height: 16%;
-
+         box-shadow: 0 0 3px #000,0 0 3px #000;
          background-color: $colorq;
          position: absolute;
          bottom: 0px;
@@ -226,6 +230,8 @@ body{
          content: "";
          width: 100%;
          height: 16%;
+         box-shadow: 0 0 3px #000,0 0 3px #000;
+
 
          background-color: $colorq;
          position: absolute;
@@ -1055,6 +1061,7 @@ body{
 
    &__form {
       max-width: 414px;
+      min-width: 360px;
       position: relative;
       
 
@@ -1081,6 +1088,7 @@ body{
    &__tap {
 
       .name {
+         // display: block;
          font-size: 16px;
          font-weight: 500;
          width:100% ;
@@ -1102,7 +1110,7 @@ body{
 
       }
       .tel {
-         width: 160px;
+         width: 40%;
          font-size: 16px;
          font-weight: 500;
          border: 2px solid #c5c5c5;
@@ -1115,7 +1123,7 @@ body{
          }
       }
       .email {
-         width: 208px;
+         width: 50%;
          font-size: 16px;
          font-weight: 500;
          border: 2px solid #c5c5c5;
@@ -1333,6 +1341,7 @@ body{
             flex: 1;
             background: url(../img/footer/Layer_47.png) no-repeat center  / cover, #000;
             display: flex;
+            
             align-items: flex-end;
 
          }
@@ -1368,11 +1377,21 @@ body{
 
 @media(max-width:990px){
    .logo{
+      &__inner{
+         position: relative;
+      }
       &__nav{
-         display: none;
+         // display: none;
+         position: absolute;
+         top: 120px;
+         left: -100%;
+         gap: 20px;
+         text-shadow: 0 0 10px #000,0 0 10px #000,0 0 10px #000,;
+         flex-direction: column;
       }
       &__burger{
          display: flex;
+
       }
    }
    .galery{
@@ -1385,10 +1404,52 @@ body{
          display: none;
       }
    }
+   .footer{
+      &__inner{
+         position: relative;
+         margin: 0px 0px;
+      }
+      &__burger{
+         display: inline-flex;
+         top: 20px !important;
+         position:absolute;
+         left: 20px;
+         transform:none !important;
+         z-index: 3;
+      }
+      &__left{
+         // display: none;
+         position: absolute;
+         top: 0;
+         left: -100%;
+         margin: 0px 0px;
+         background-color: #000;
+         min-width: 100%;
+         height: 100%;
+         z-index: 2;
+         overflow: auto;
+         padding: 0px 30px;
+      }
+      &__logo{
+         margin: 80px 0px 40px 0px;
+      }
+      &__right{
+         min-height: 100vh;
+         min-width: 100%;
+         // background-position: 70%;
+
+      }
+      &__name{
+         font-size: 50px  !important;
+      }
+   }
    
 
 
 }
+//! ///---990---\\\ !\\
+
+/*! ///---990---\\\ !*/
 @media (max-width:768px){
    .process{
       &__body{
@@ -1499,27 +1560,40 @@ body{
    }
    .blogs{
       &__inner{
-         padding: 40px 10px 40px 10px;
+         padding: 20px 10px 10px 10px;
          flex-direction: column;
+         position: relative;
+
       }
       &__nav{
          flex: 1;
          margin: 0px 0px 20px 0px;
-         position: relative;
       }
       &__logo{
          margin: 0px 0px 20px 0px;
       }
       &__links{
-         display: none;
+         // display: none;
+      position: absolute;
+      top: 0;
+      z-index: 2;
+      text-align: right;
+      right: -100%;
+      background-color: rgb(255, 255, 255);
+      display: flex;
+      padding: 90px 20px 0px 0px;
+      min-height: 100%;
+      min-width: 100%;
+
       }
       &__burger{
          position: absolute;
-         top: 50%;
+         top: 50px;
          right:20px;
          display: flex;
+         z-index: 3;
          
-         transform: translateY(-100%);
+         // transform: translateY(-100%);
       }
       &__body{
          flex-wrap: wrap;
@@ -1529,5 +1603,21 @@ body{
          padding-bottom: 20px;
       }
    }
+   .contact{
+      .container{
+         padding: 0px 0px;
+      }
+      &__inner{
+         justify-content: center;
+      }
+      &__form{
+         min-width: auto;
+         margin: 0px auto;
+
+      }
+      &__map{
+         display: none;
+      }
    }
+}
 
