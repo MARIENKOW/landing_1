@@ -1673,6 +1673,7 @@ body{
          flex-direction: column;
          position: relative;
          max-height: 100vh;
+         min-height: 590px;
       }
       &__nav{
          flex: 1;
