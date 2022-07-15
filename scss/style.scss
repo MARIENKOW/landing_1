@@ -199,59 +199,44 @@ body{
    }
    &__burger{
       display: none;
-      height: 15px;
-      width: 20px;
+      height: 20px;
+      width: 25px;
       align-items: center;
       position: relative;
-   }
-   &__center{
-      min-width: 100%;
-      min-height: 15px;
-      display: flex;
-      align-items: center;
-      span{
-         transition: .3s;
-         display: block;
+      span,&::after,&::before{
          width: 100%;
          height: 2px;
          background-color: $colorq;
          border-radius: 2px;
          box-shadow: 0 0 3px #000,0 0 3px #000;
-   }
+         transition: .3s;
 
+      }
+      span{
+         display: block;
+         
 
-      
-
+      }
       &::after{
          content: "";
-         width: 100%;
-         height: 2px;
-         box-shadow: 0 0 3px #000,0 0 3px #000;
-         background-color: $colorq;
          position: absolute;
          bottom: 0px;
          left: 0;
-         border-radius: 2px;
-         transition: .3s;
-
-
-
       }
       &::before{
          content: "";
-         width: 100%;
-         height: 2px;
-         box-shadow: 0 0 3px #000,0 0 3px #000;
-         transition: .3s;
-         background-color: $colorq;
          position: absolute;
          top: 0px;
          left: 0;
-         border-radius: 2px;
-
       }
-
    }
+   // &__center{
+   //    min-width: 100%;
+   //    min-height: 100%;
+   //    display: flex;
+   //    align-items: center;
+      
+   // }
 
    &__link {
       font-family: myriad-pro-condensed, sans-serif;
@@ -1405,23 +1390,23 @@ body{
          gap: 20px;
          text-shadow: 0 0 10px #000,0 0 10px #000,0 0 10px #000,;
          flex-direction: column;
-         transition: .3s;
+         opacity: 0;
+         transition: .7s;
       }
       ._active .logo__nav{
          left: 10px;
+         opacity: 1;
       }
       &__burger{
          display: flex;
-
       }
-      ._active .logo__center{
+      ._active .logo__burger{
          span{
             transform: scale(0);
          }
          &::before{
             transform: rotate(45deg);
             top: auto;
-
          }
          &::after{
             transform: rotate(-45deg);
@@ -1429,6 +1414,9 @@ body{
          }
       }
    }
+//! ///-----------\\\ !\\
+
+/*! ///-----------\\\ !*/
    .about{
       &__top{
          padding: 0px 0px;
@@ -1447,18 +1435,26 @@ body{
       &__middle{
          margin: 20px 0px 30px 0px;
       }
-      
    }
+//! ///-----------\\\ !\\
+
+/*! ///-----------\\\ !*/
    .galery{
       &__photo{
          flex: 0 0 50%;
       }
    }
+//! ///-----------\\\ !\\
+
+/*! ///-----------\\\ !*/
    .blogs{
       &__burger{
          display: none;
       }
    }
+//! ///-----------\\\ !\\
+
+/*! ///-----------\\\ !*/
    .footer{
       &__inner{
          position: relative;
@@ -1470,10 +1466,13 @@ body{
             background-color: rgb(0, 0, 0);
             position: absolute;
             top: 0;
-            left: 0;
+            left: -100%;
             z-index: 3;
             
          }
+      }
+      ._active .footer__inner::before{
+         left: 0;
       }
       &__burger{
          display: inline-flex;
@@ -1484,32 +1483,30 @@ body{
          z-index: 3;
          cursor: pointer;
       }
-      
       &__left{
-         // display: none;
          position: absolute;
          top: 0;
          left: -100%;
          margin: 0px 0px;
-         background-color: #000;
+         background-color: rgba(0, 0, 0, 0.608);
          min-width: 100%;
          height: 100%;
          z-index: 2;
          overflow: auto;
          padding: 0px 30px;
          transition: .4s;
+         opacity: 0;
          &::-webkit-scrollbar{
             display: none;
          }
-         
       }
       ._active .footer__left{
          left: 0;
+         opacity: 1;
       }
-      ._active .logo__center{
+      ._active .logo__burger{
          span{
          transform: scale(0);
-
          }
          &::before{
             transform: rotate(45deg);
@@ -1519,10 +1516,9 @@ body{
             transform: rotate(-45deg);
             bottom: auto;
          }
-
       }
       &__link{
-         font-size: 30px;
+         font-size: 22px;
       }
       &__logo{
          margin: 80px 0px 40px 0px;
@@ -1531,17 +1527,16 @@ body{
          min-height: 100vh;
          min-width: 100%;
          // background-position: 70%;
-
       }
       &__name{
          font-size: 50px  !important;
+         transition: .4s;
+      }
+      ._active .footer__name{
+         opacity: 0;
       }
    }
-   
-
-
 }
-
 //! ///---990---\\\ !\\
 
 /*! ///---990---\\\ !*/
@@ -1554,6 +1549,9 @@ body{
          flex: 0 1 350px;
       }
    }
+//! ///----------\\\ !\\
+
+/*! ///----------\\\ !*/
    .process{
       &__body{
          padding-top: 20px;
@@ -1563,7 +1561,6 @@ body{
       }
       &__element{
          width: 100%;
-
          &:nth-child(1){
             order:1;
          }
@@ -1592,15 +1589,14 @@ body{
       }
       &__middle{
          padding: 0px 0px 15px 0px;
-
       }
       &__foot{
          padding: 0px 0px 20px 0px;
-
          }
-
-
       }
+//! ///----------\\\ !\\
+
+/*! ///----------\\\ !*/
       .services{
          &__top{
             padding: 30px 0px;
@@ -1608,7 +1604,6 @@ body{
          &__container{
             margin: auto;
             max-width: 400px;
-
          }
          &__block{
             flex: 0 0 100%;
@@ -1625,11 +1620,13 @@ body{
             margin: 0px 0px 7px 0px;
          }
       }
+//! ///-----------\\\ !\\
+
+/*! ///-----------\\\ !*/
       .team{
          &__inner{
             margin: 0px 0px 20px 0px;
             flex-wrap: wrap;
-
          }
          &__logo,&__body{
             margin: 20px 0px 0px 0px;
@@ -1642,6 +1639,9 @@ body{
             padding: 0px 0px 20px 0px;
          }
       }
+//! ///-----------\\\ !\\
+
+/*! ///-----------\\\ !*/
    .testimonials{
       &__logo{
          margin: 30px 0px 0px 0px;
@@ -1650,7 +1650,6 @@ body{
          justify-content: center;
          margin: 40px 0px 30px 0px;
          flex-wrap: wrap;
-
       }
       &__left{
          order: 1;
@@ -1658,15 +1657,17 @@ body{
       }
       &__right{
          margin: 0px 0px 30px 0px;
-
       }
    }
+//! ///-----------\\\ !\\
+
+/*! ///-----------\\\ !*/
    .blogs{
       &__inner{
          padding: 20px 10px 10px 10px;
          flex-direction: column;
          position: relative;
-
+         max-height: 100vh;
       }
       &__nav{
          flex: 1;
@@ -1688,34 +1689,24 @@ body{
          min-height: 100%;
          min-width: 100%;
          transition: .4s;
-
       }
       ._active .blogs__links{
          right: 0;
       }
       &__link{
-         font-size: 25px !important;
+         font-size: 30px !important;
          margin: 0px 0px 40px 0px;
          font-weight: 700;
-
       }
       &__burger{
-         height: 15px;
-         width: 20px;
-         align-items: center;
          position: absolute;
-         top: 50px;
+         top: 37px;
          right:20px;
-         display: flex;
+         display: inline-flex;
          z-index: 3;
          cursor: pointer;
-
-         
-         // transform: translateY(-100%);
       }
-      
-
-      ._active .logo__center{
+      ._active .logo__burger{
          span{
             transform: scale(0);
          }
@@ -1729,17 +1720,32 @@ body{
             bottom: auto;
          }
       }
-
-
-
       &__body{
          flex-wrap: wrap;
+         overflow: auto;
+         max-height: 100%;
       }
       &__block{
          width: 50%;
          padding-bottom: 20px;
       }
+      ._active .blogs__block{
+         animation: blogs 3s linear infinite running;
+         overflow: hidden;
+      }
+      @keyframes blogs {
+         0% {transform: none;}
+         33% {transform: perspective(400px) rotatex(45deg) scale(0.7); }
+         66% {transform: perspective(400px) rotatex(-45deg) scale(0.7); }
+         100% {transform:none; }
+
+      }
    }
+
+//! ///------------\\\ !\\
+
+/*! ///------------\\\ !*/
+
    .contact{
       .container{
          padding: 0px 0px;
@@ -1753,7 +1759,6 @@ body{
       &__form{
          min-width: auto;
          margin: 0px auto;
-
       }
       &__map{
          display: none;
