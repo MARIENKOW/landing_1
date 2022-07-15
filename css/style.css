@@ -86,7 +86,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .footer__logo::first-letter, .contact__title p::first-letter, .blogs__logo::first-letter, .testimonials__logo::first-letter, .team__logo h1::first-letter, .services__top h1::first-letter, .process__title::first-letter, .about__subtitle::first-letter {
-  font-size: 50px;
+  font-size: 160%;
   color: #ffc600;
 }
 
@@ -330,6 +330,7 @@ body {
   min-width: 100%;
   height: auto;
   background-color: #fff;
+  padding: 0px 10px;
 }
 .about__top {
   padding: 36px 0px 0px 0px;
@@ -376,8 +377,13 @@ body {
   -webkit-box-pack: end;
       -ms-flex-pack: end;
           justify-content: end;
-  margin: 0px 0px 0px 135px;
+  margin-left: 135px;
   text-align: left;
+}
+@media (max-width: 1099px) {
+  .about__first {
+    margin-left: calc(-10px + 145 * ((100vw - 320px) / 779));
+  }
 }
 .about__first span {
   color: #717171;
@@ -386,20 +392,39 @@ body {
   font-weight: 600;
   font-style: normal;
   letter-spacing: normal;
-  line-height: normal;
   position: relative;
   bottom: -10px;
   left: 8px;
 }
+@media (max-width: 1099px) {
+  .about__first span {
+    font-size: calc(16px + 14 * ((100vw - 320px) / 779));
+  }
+}
+@media (max-width: 1099px) {
+  .about__first span {
+    bottom: calc(0px + -10 * ((100vw - 320px) / 779));
+  }
+}
+@media (max-width: 1099px) {
+  .about__first span {
+    left: calc(4px + 4 * ((100vw - 320px) / 779));
+  }
+}
 .about__first span::first-letter {
-  font-size: 50px;
+  font-size: 160%;
   font-style: normal;
   letter-spacing: normal;
   line-height: normal;
 }
 .about__second {
   min-height: 50%;
-  margin: 0px 0px 0px 133px;
+  margin-left: 133px;
+}
+@media (max-width: 1099px) {
+  .about__second {
+    margin-left: calc(-10px + 143 * ((100vw - 320px) / 779));
+  }
 }
 .about__second::first-letter {
   color: #ffc600;
@@ -419,8 +444,18 @@ body {
   position: relative;
   top: -10px;
 }
+@media (max-width: 1099px) {
+  .about__second span {
+    font-size: calc(40px + 40 * ((100vw - 320px) / 779));
+  }
+}
 .about__second span:after {
   bottom: 10px;
+}
+@media (max-width: 1099px) {
+  .about__second span:after {
+    bottom: calc(-2px + 12 * ((100vw - 320px) / 779));
+  }
 }
 .about__text {
   -webkit-box-flex: 0;
@@ -450,11 +485,11 @@ body {
   margin: 0px 0px 111px 0px;
 }
 .about__body {
-  max-width: 892px;
-  padding: 0px 10px;
+  max-width: 872px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  gap: 20px;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
   margin: 0 auto;
@@ -477,7 +512,12 @@ body {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  margin: 72px 0px 0px 0px;
+  margin-top: 72px;
+}
+@media (max-width: 1099px) {
+  .about__block {
+    margin-top: calc(10px + 62 * ((100vw - 320px) / 779));
+  }
 }
 .about__icon {
   margin: 0px 0px 24px 0px;
@@ -510,7 +550,8 @@ body {
   text-align: center;
 }
 .about__bottom {
-  margin: 0px 0px 0px 81px;
+  max-width: 1056px;
+  margin: 0px auto;
   font-family: myriad-pro-condensed, sans-serif;
   padding: 0px 0px 23px 0px;
 }
@@ -1420,6 +1461,23 @@ body {
     display: -ms-flexbox;
     display: flex;
   }
+  .about__top {
+    padding: 0px 0px;
+  }
+  .about__logo {
+    padding: 0px 0px 20px 0px;
+  }
+  .about__logo::after {
+    display: none;
+  }
+  .about__text {
+    -webkit-box-flex: 0;
+        -ms-flex: 0 0 100%;
+            flex: 0 0 100%;
+  }
+  .about__middle {
+    margin: 20px 0px 30px 0px;
+  }
   .galery__photo {
     -webkit-box-flex: 0;
         -ms-flex: 0 0 50%;
@@ -1469,6 +1527,16 @@ body {
 }
 /*! ///---990---\\\ !*/
 @media (max-width: 768px) {
+  .about__body {
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+  .about__block {
+    -webkit-box-flex: 0;
+        -ms-flex: 0 1 350px;
+            flex: 0 1 350px;
+  }
   .process__body {
     padding-top: 20px;
   }
@@ -1633,6 +1701,9 @@ body {
     -webkit-box-pack: center;
         -ms-flex-pack: center;
             justify-content: center;
+  }
+  .contact__body {
+    padding: 20px 10px;
   }
   .contact__form {
     min-width: auto;

@@ -57,7 +57,7 @@ $colorq:#ffc600;
 }
 %firstletter{
    &::first-letter{
-      font-size: 50px;
+      font-size: 160%;
       color: $colorq;
       
    }
@@ -272,6 +272,7 @@ body{
       min-width: 100%;
       height: auto;
       background-color: #fff;
+      padding: 0px 10px;
    }
 
    &__top {
@@ -303,23 +304,25 @@ body{
       display: flex;
       flex-direction: column;
       justify-content:end;
-      margin: 0px 0px 0px 135px;
+      @include adaptiv-value("margin-left",135 ,-10 ,1 );
       
       text-align: left;
       
       span{
          color: #717171;
          font-family:myriad-pro-condensed, sans-serif;
-         font-size: 30px;
+         @include adaptiv-value("font-size",30 ,16 ,1 );
+         // font-size: 30px;
          font-weight: 600;
          font-style: normal;
          letter-spacing: normal;
-         line-height: normal;
          position: relative;
-         bottom: -10px;
-         left: 8px;
+         // bottom: -10px;
+         @include adaptiv-value("bottom",-10 ,0 ,1 );
+         // left: 8px;
+         @include adaptiv-value("left",8 ,4 ,1 );
          &::first-letter{
-            font-size: 50px;
+            font-size: 160%;
             font-style: normal;
             letter-spacing: normal;
             line-height: normal;
@@ -331,7 +334,7 @@ body{
 
    &__second {
       min-height: 50%;
-      margin: 0px 0px 0px 133px;
+      @include adaptiv-value("margin-left",133 ,-10 ,1 );
       &::first-letter{
          color: $colorq;
          font-style: normal;
@@ -341,7 +344,8 @@ body{
       span{
          color: #000000;
          font-family:myriad-pro-condensed, sans-serif;
-         font-size: 80px;
+         // font-size: 80px;
+         @include adaptiv-value("font-size",80 ,40 ,1 );
          font-weight: 600;
          font-style: normal;
          letter-spacing: normal;
@@ -351,7 +355,8 @@ body{
          top: -10px;
          @extend %line;
          &:after{
-            bottom: 10px;
+            // bottom: 10px;
+            @include adaptiv-value("bottom",10 ,-2 ,1 );
          }
       }
    }
@@ -387,10 +392,10 @@ body{
    }
 
    &__body {
-      max-width: 892px;
-      padding:0px 10px;
+      max-width: 872px;
 
       display: flex;
+      gap: 20px;
       flex-wrap: wrap;
       margin: 0 auto;
       justify-content: space-between;
@@ -402,7 +407,8 @@ body{
       display: flex;
       flex-direction: column;
       justify-content: center;
-      margin: 72px 0px 0px 0px;
+      @include adaptiv-value("margin-top",72 ,10 ,1 );
+      // margin: 72px 0px 0px 0px;
    }
 
    &__icon {
@@ -439,7 +445,8 @@ body{
 
    }
    &__bottom {
-      margin: 0px 0px 0px 81px;
+      max-width: 1056px;
+      margin: 0px auto;
       font-family: myriad-pro-condensed, sans-serif;
 
       padding:0px 0px 23px 0px;
@@ -1394,6 +1401,27 @@ body{
 
       }
    }
+   .about{
+      &__top{
+         padding: 0px 0px;
+      }
+      &__logo{
+         padding: 0px 0px 20px 0px;
+         &::after{
+            display: none;
+         }
+      }
+      &__text{
+         flex: 0 0 100%;
+         
+      }
+      &__second{
+      }
+      &__middle{
+         margin: 20px 0px 30px 0px;
+      }
+      
+   }
    .galery{
       &__photo{
          flex: 0 0 50%;
@@ -1451,6 +1479,14 @@ body{
 
 /*! ///---990---\\\ !*/
 @media (max-width:768px){
+   .about{
+      &__body{
+         justify-content: center;
+      }
+      &__block{
+         flex: 0 1 350px;
+      }
+   }
    .process{
       &__body{
          padding-top: 20px;
@@ -1609,6 +1645,9 @@ body{
       }
       &__inner{
          justify-content: center;
+      }
+      &__body{
+         padding: 20px 10px;
       }
       &__form{
          min-width: auto;
