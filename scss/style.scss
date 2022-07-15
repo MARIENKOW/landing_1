@@ -1395,6 +1395,10 @@ body{
          gap: 20px;
          text-shadow: 0 0 10px #000,0 0 10px #000,0 0 10px #000,;
          flex-direction: column;
+         transition: .3s;
+      }
+      ._active .logo__nav{
+         left: 10px;
       }
       &__burger{
          display: flex;
@@ -1415,8 +1419,7 @@ body{
          flex: 0 0 100%;
          
       }
-      &__second{
-      }
+      
       &__middle{
          margin: 20px 0px 30px 0px;
       }
@@ -1436,6 +1439,17 @@ body{
       &__inner{
          position: relative;
          margin: 0px 0px;
+         &::before{
+            content: "";
+            width: 100%;
+            height: 55px;
+            background-color: rgb(0, 0, 0);
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 3;
+            
+         }
       }
       &__burger{
          display: inline-flex;
@@ -1444,7 +1458,9 @@ body{
          left: 20px;
          transform:none !important;
          z-index: 3;
+         cursor: pointer;
       }
+      
       &__left{
          // display: none;
          position: absolute;
@@ -1457,6 +1473,17 @@ body{
          z-index: 2;
          overflow: auto;
          padding: 0px 30px;
+         transition: .4s;
+         &::-webkit-scrollbar{
+            display: none;
+         }
+         
+      }
+      ._active .footer__left{
+         left: 0;
+      }
+      &__link{
+         font-size: 30px;
       }
       &__logo{
          margin: 80px 0px 40px 0px;
@@ -1610,24 +1637,39 @@ body{
       }
       &__links{
          // display: none;
-      position: absolute;
-      top: 0;
-      z-index: 2;
-      text-align: right;
-      right: -100%;
-      background-color: rgb(255, 255, 255);
-      display: flex;
-      padding: 90px 20px 0px 0px;
-      min-height: 100%;
-      min-width: 100%;
+         position: absolute;
+         top: 0;
+         z-index: 2;
+         text-align: right;
+         right: -100%;
+         background-color: rgba(255, 255, 255, 0.812);
+         display: flex;
+         padding: 90px 20px 0px 0px;
+         min-height: 100%;
+         min-width: 100%;
+         transition: .4s;
+
+      }
+      ._active .blogs__links{
+         right: 0;
+      }
+      &__link{
+         font-size: 25px !important;
+         margin: 0px 0px 40px 0px;
+         font-weight: 700;
 
       }
       &__burger{
+         height: 15px;
+         width: 20px;
+         align-items: center;
          position: absolute;
          top: 50px;
          right:20px;
          display: flex;
          z-index: 3;
+         cursor: pointer;
+
          
          // transform: translateY(-100%);
       }
