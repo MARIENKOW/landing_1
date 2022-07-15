@@ -168,7 +168,9 @@ body{
       @include adaptiv-value("max-width",550,200 ,1 );
 
       @include adaptiv-value("padding-top",70,12 ,1 );
-      @include adaptiv-value("padding-left",46,8 ,1 );
+      // @include adaptiv-value("padding-left",46,8 ,1 );
+      @include adaptiv-value("margin-left",46,8 ,1 );
+
 
    }
    &__title {
@@ -924,7 +926,7 @@ body{
 
    &__nav {
       flex: 0 1 235px;
-      margin: 30px 0px 0px 0px;
+      margin: 30px 20px 0px 0px;
       display: flex;
       flex-direction: column;
 
@@ -1379,22 +1381,25 @@ body{
 
 @media(max-width:990px){
    .logo{
-      &__inner{
+      
+      &__body{
          position: relative;
+
       }
       &__nav{
          // display: none;
          position: absolute;
-         top: 120px;
          left: -100%;
+         bottom: -30px;
          gap: 20px;
          text-shadow: 0 0 10px #000,0 0 10px #000,0 0 10px #000,;
          flex-direction: column;
          opacity: 0;
+         transform: translateY(100%);
          transition: .7s;
       }
       ._active .logo__nav{
-         left: 10px;
+         left: 0px;
          opacity: 1;
       }
       &__burger{
@@ -1679,22 +1684,23 @@ body{
       &__links{
          // display: none;
          position: absolute;
+         overflow: auto;
          top: 0;
          z-index: 2;
          text-align: right;
          right: -100%;
          background-color: rgba(255, 255, 255, 0.812);
          display: flex;
-         padding: 90px 20px 0px 0px;
-         min-height: 100%;
-         min-width: 100%;
+         padding: 90px 20px 30px 0px;
+         height: 100%;
+         width: 100%;
          transition: .4s;
       }
       ._active .blogs__links{
          right: 0;
       }
       &__link{
-         font-size: 30px !important;
+         font-size: 25px !important;
          margin: 0px 0px 40px 0px;
          font-weight: 700;
       }
@@ -1724,9 +1730,10 @@ body{
          flex-wrap: wrap;
          overflow: auto;
          max-height: 100%;
+         padding: 20px 0px 50px 0px;
       }
       &__block{
-         width: 50%;
+         width: 33.33%;
          padding-bottom: 20px;
       }
       ._active .blogs__block{
@@ -1765,4 +1772,10 @@ body{
       }
    }
 }
-
+@media(max-width:540px){
+   .blogs{
+      &__block{
+         width: 50%;
+      }
+   }
+}
