@@ -1392,10 +1392,11 @@ body{
 /*! ///---FOOTER---\\\ !*/
 
 @media(max-width:990px){
-.social__icon,.social__icon2{
-   height: 27px;
-   width: 27px;
-}
+   .social__icon,.social__icon2{
+      height: 27px;
+      width: 27px;
+   }
+
    .logo{
       &__inner{
          position: relative;
@@ -1403,6 +1404,7 @@ body{
       ._active .logo__title{
          opacity: 0;
       }
+      
       &__nav{
          // display: none;
          position: absolute;
@@ -1412,14 +1414,25 @@ body{
          padding: 0px 30px 0px 0px;
       @include adaptiv-value("padding-top",140,60 ,1 );
 
-         background: rgba(0, 0, 0, 0.9);
+         background: rgba(0, 0, 0, 0.5);
          min-width: 100%;
          min-height: 100%;
          text-shadow: 0 0 10px #000,0 0 10px #000,0 0 10px #000,;
          flex-direction: column;
          justify-content: flex-start;
-         opacity: 0;
-         transition: .7s;
+         // opacity: 0;
+         transition: .3s;
+         &::after{
+            content: '';
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            z-index: 1;
+            top: 0;
+            left: 0;
+            backdrop-filter: blur(10px);
+         }
+         
       }
       ._active .logo__nav{
          right: 0;
@@ -1428,10 +1441,45 @@ body{
       &__link{
          text-align: right;
          font-size: 30px;
+         margin-right: -100%;
+         opacity: 0;
+         z-index: 2;
+         transform: scale(0);
+         &:hover{
+            border-bottom:none;
+         }
+         &:nth-child(1){
+            transition:margin-right .4s .1s,transform .9s .1s;
+
+         }
+         &:nth-child(2){
+            transition:margin-right .4s .2s,transform .9s .2s;
+
+
+         }
+         &:nth-child(3){
+            transition:margin-right .4s .3s,transform .9s .3s;
+
+
+         }
+         &:nth-child(4){
+            transition:margin-right .4s .4s,transform .9s .4s;
+
+
+         }
+         
+      }
+      ._active .logo__link{
+         margin-right: 0;
+         opacity: 1;
+         transform: scale(1);
+
 
       }
       &__burger{
          display: flex;
+         cursor: pointer;
+         z-index: 2;
       }
       ._active .logo__burger{
          span{
@@ -1503,21 +1551,9 @@ body{
       &__inner{
          position: relative;
          margin: 0px 0px;
-         &::before{
-            content: "";
-            width: 100%;
-            height: 55px;
-            background-color: rgb(0, 0, 0);
-            position: absolute;
-            top: 0;
-            left: -100%;
-            z-index: 3;
-            
-         }
+         
       }
-      ._active .footer__inner::before{
-         left: 0;
-      }
+      
       &__burger{
          display: inline-flex;
          top: 40px !important;
@@ -1532,22 +1568,37 @@ body{
          top: 0;
          left: -100%;
          margin: 0px 0px;
-         background-color: rgba(0, 0, 0, 0.608);
+         // background-color: rgba(0, 0, 0, 0.608);
          min-width: 100%;
-         height: 100%;
+         min-height: 100%;
          z-index: 2;
          overflow: auto;
          padding: 0px 30px;
          transition: .4s;
-         opacity: 0;
+         // opacity: 0;
+         
+         &::after{
+            position: absolute;
+            content: '';
+            top: 0;
+            background-color: rgba(0, 0, 0, 0.2);
+            left:0 ;
+            right: 0;
+            bottom: 0;
+            z-index: -1;
+            backdrop-filter: blur(15px);
+
+
+         }
          &::-webkit-scrollbar{
             display: none;
          }
       }
       ._active .footer__left{
          left: 0;
-         opacity: 1;
+         // opacity: 1;
       }
+      
       ._active .logo__burger{
          span{
          transform: scale(0);
@@ -1565,7 +1616,10 @@ body{
          font-size: 22px;
       }
       &__logo{
-         margin: 80px 0px 40px 0px;
+         margin: 24px 0px 40px 0px;
+      }
+      &__social{
+         margin: 0px 0px 10px 0px;
       }
       &__right{
          min-height: 100vh;
@@ -1736,12 +1790,25 @@ body{
          z-index: 2;
          text-align: right;
          right: -100%;
-         background-color: rgba(255, 255, 255, 0.812);
+         // background-color: rgba(255, 255, 255, 0.1);
          display: flex;
          padding: 90px 20px 30px 0px;
          height: 100%;
          width: 100%;
          transition: .4s;
+         &::before{
+            content: "";
+            position: absolute;
+            z-index: -1;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(127, 127, 127, 0.249);
+            
+
+            backdrop-filter: blur(9px);
+         }
       }
       ._active .blogs__links{
          right: 0;
