@@ -35,6 +35,7 @@ if (logoLinks) {
 
 // }
 // })
+let galeryPhotos = document.querySelectorAll('.galery__photo');
 let about = document.querySelector('.about__link');
 let galery = document.querySelector('.galery__intro');
 let about1 = document.querySelectorAll('.about__link')[1];
@@ -44,18 +45,30 @@ let galery2 = document.querySelectorAll('.galery__intro')[2];
 let about3 = document.querySelectorAll('.about__link')[3];
 let galery3 = document.querySelectorAll('.galery__intro')[3];
 console.log(about1);
-console.log(galery1);
+// console.log(galery1);
+function galery12(in1,in2){
+   for(let index = 0;index < galeryPhotos.length;index++){
+      let galeryPhoto = galeryPhotos[index];
+      if(index < in1 && index > in2){
+      galeryPhoto.classList.add('_go');
+      }else{
+      galeryPhoto.classList.remove('_go');
 
+      }
+   }
+}
 about.addEventListener('click',function(){
    about1.classList.remove('line');
    about2.classList.remove('line');
    about3.classList.remove('line');
    about.classList.add('line');
-
+   
    galery1.classList.add('none');
    galery2.classList.add('none');
    galery3.classList.add('none');
    galery.classList.remove('none');
+   
+   setTimeout(galery12,0,8,-1);
 });
 about1.addEventListener('click',function(){
    about.classList.remove('line');
@@ -67,6 +80,8 @@ about1.addEventListener('click',function(){
    galery2.classList.add('none');
    galery3.classList.add('none');
    galery1.classList.remove('none');
+   setTimeout(galery12,0,16,7);
+
 });
 about2.addEventListener('click',function(){
    about1.classList.remove('line');
@@ -78,17 +93,20 @@ about2.addEventListener('click',function(){
    galery1.classList.add('none');
    galery3.classList.add('none');
    galery2.classList.remove('none');
+   setTimeout(galery12,0,24,15);
+
 });
 about3.addEventListener('click',function(){
    about1.classList.remove('line');
    about2.classList.remove('line');
    about.classList.remove('line');
    about3.classList.add('line');
-
    galery.classList.add('none');
    galery2.classList.add('none');
    galery1.classList.add('none');
    galery3.classList.remove('none');
+   setTimeout(galery12,0,36,23);
+
 });
 let link = document.querySelector('.blogs__link');
 let body = document.querySelector('.blogs__body');
@@ -315,7 +333,21 @@ logo3.addEventListener('click',function(){
       behavior:'smooth'
    });
 })
+let processElements = document.querySelectorAll('.process__element');
+if (processElements.length > 0){
+   for(index of processElements){
+      let processElement = index;
+      processElement.classList.add('_animate');
+   }
+}
+if (galeryPhotos.length > 0){
+   for (let index of galeryPhotos){
+      let galeryPhoto = index;
+      if(!galeryPhoto.classList.contains('_animate'))
+      galeryPhoto.classList.add('_animate');
 
+   }
+}
 let animateItems = document.querySelectorAll('._animate');
 if(animateItems.length > 0){
    function animateF(){
@@ -339,3 +371,8 @@ if(animateItems.length > 0){
    animateF();
 }
 window.addEventListener('scroll',animateF);
+let animatet = document.querySelectorAll('._animate');
+for (index of animatet){
+   let animate = index;
+   animate.classList.add('_animate--stop');
+}
