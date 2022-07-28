@@ -315,3 +315,27 @@ logo3.addEventListener('click',function(){
       behavior:'smooth'
    });
 })
+
+let animateItems = document.querySelectorAll('._animate');
+if(animateItems.length > 0){
+   function animateF(){
+      for(let index of animateItems){
+         const animateItem = index;
+         const animateItemHeight = animateItem.offsetHeight;
+         let pos = animateItem.getBoundingClientRect().top;
+         const animateItemPosition = pos + window.pageYOffset;
+         let animateDel = 8;
+         let animateDel2 = 8;
+
+         if(window.innerHeight > animateItemHeight && window.scrollY + window.innerHeight > animateItemPosition + animateItemHeight/animateDel && window.scrollY < animateItemPosition + animateItemHeight - animateItemHeight/animateDel){
+            animateItem.classList.add('_go');
+         }else if(window.innerHeight <= animateItemHeight && window.scrollY + window.innerHeight > animateItemPosition + window.innerHeight / animateDel2 && window.scrollY < animateItemPosition + animateItemHeight - window.innerHeight/animateDel2){
+            animateItem.classList.add('_go');
+         }else if(!animateItem.classList.contains('_animate--stop') ){
+            animateItem.classList.remove('_go')
+         }
+      }
+   }
+   animateF();
+}
+window.addEventListener('scroll',animateF);

@@ -101,6 +101,40 @@ body {
   overflow: hidden;
 }
 
+._animate .container {
+  -webkit-transform: scale(0.8);
+      -ms-transform: scale(0.8);
+          transform: scale(0.8);
+  -webkit-transition: 0.4s 0.1s;
+  -o-transition: 0.4s 0.1s;
+  transition: 0.4s 0.1s;
+  position: relative;
+}
+
+._animate .container::before {
+  position: absolute;
+  content: "";
+  max-width: 100%;
+  height: 100%;
+  z-index: 10;
+  background-color: rgba(0, 0, 0, 0.9);
+  -webkit-transition: 0.7s;
+  -o-transition: 0.7s;
+  transition: 0.7s;
+  pointer-events: none;
+}
+
+._go .container {
+  -webkit-transform: scale(1);
+      -ms-transform: scale(1);
+          transform: scale(1);
+  top: 0;
+}
+
+._go .container::before {
+  background-color: rgba(0, 0, 0, 0);
+}
+
 /*! ///---ELEMENTS---\\\ !*/
 .header {
   min-width: 100%;
@@ -490,7 +524,7 @@ body {
 }
 .about__middle {
   font-family: myriad-pro-condensed, sans-serif;
-  margin: 0px 0px 111px 0px;
+  margin: 0px 0px 40px 0px;
 }
 .about__body {
   max-width: 872px;
@@ -561,7 +595,7 @@ body {
   max-width: 1056px;
   margin: 0px auto;
   font-family: myriad-pro-condensed, sans-serif;
-  padding: 0px 0px 23px 0px;
+  padding: 40px 0px 23px 0px;
 }
 .about__foot {
   width: 100%;
@@ -1667,7 +1701,7 @@ body {
     font-size: 16px;
   }
   .about__middle {
-    margin: 0px 0px 0px 0px;
+    margin: 0px 0px 40px 0px;
   }
   .about__title {
     font-size: 20px;
@@ -1675,9 +1709,6 @@ body {
   .about__texts {
     font-size: 16px;
     margin: auto;
-  }
-  .about__bottom {
-    margin-top: 100px;
   }
   .about__nav {
     max-width: none;
@@ -1789,7 +1820,7 @@ body {
     margin: 0px 0px 10px 0px;
   }
   .footer__right {
-    min-height: 100vh;
+    min-height: 101vh;
     min-width: 100%;
   }
   .footer__name {
@@ -2155,11 +2186,15 @@ body {
   .blogs__block {
     width: 50%;
   }
+  .about__bottom {
+    padding-top: 30px;
+  }
   .about__nav {
     gap: 0;
     -webkit-box-pack: justify;
         -ms-flex-pack: justify;
             justify-content: space-between;
+    padding: 0px 5px;
   }
   .about__link {
     font-size: 11px;
