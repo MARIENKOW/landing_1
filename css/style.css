@@ -102,12 +102,12 @@ body {
 }
 
 ._animate .container {
-  -webkit-transform: scale(0.8);
-      -ms-transform: scale(0.8);
-          transform: scale(0.8);
-  -webkit-transition: 0.4s 0.1s;
-  -o-transition: 0.4s 0.1s;
-  transition: 0.4s 0.1s;
+  -webkit-transform: scale(0.9);
+      -ms-transform: scale(0.9);
+          transform: scale(0.9);
+  -webkit-transition: 0.4s;
+  -o-transition: 0.4s;
+  transition: 0.4s;
   position: relative;
 }
 
@@ -1446,6 +1446,15 @@ body {
           flex: 0 1 321px;
   margin: 0px 0px 0px 26px;
   padding: 0px 10px 0px 0px;
+  overflow: auto;
+  max-height: 100%;
+}
+.footer__PE {
+  display: none;
+}
+.footer__tap {
+  opacity: 0;
+  pointer-events: none;
 }
 .footer__logo {
   font-size: 60px;
@@ -1827,22 +1836,27 @@ body {
     -o-transition: 0.4s;
     transition: 0.4s;
   }
-  .footer__left::after {
-    position: absolute;
-    content: "";
-    top: 0;
-    background-color: rgba(0, 0, 0, 0.2);
-    left: 0;
-    right: 0;
-    bottom: 0;
-    z-index: -1;
-    -webkit-backdrop-filter: blur(15px);
-            backdrop-filter: blur(15px);
-  }
   .footer__left::-webkit-scrollbar {
     display: none;
   }
+  .footer__PE {
+    display: block;
+    position: absolute;
+    top: 0;
+    background-color: rgba(0, 0, 0, 0.2);
+    left: -100%;
+    width: 100%;
+    z-index: 1;
+    -webkit-transition: left 0.4s;
+    -o-transition: left 0.4s;
+    transition: left 0.4s;
+    -webkit-backdrop-filter: blur(15px);
+            backdrop-filter: blur(15px);
+  }
   .footer ._active .footer__left {
+    left: 0;
+  }
+  .footer ._active .footer__PE {
     left: 0;
   }
   .footer ._active .logo__burger span {
@@ -1871,6 +1885,129 @@ body {
   }
   .footer__social {
     margin: 0px 0px 10px 0px;
+  }
+  .footer__tap {
+    position: absolute;
+    left: 0;
+    bottom: 0px;
+    -webkit-backdrop-filter: blur(40px);
+            backdrop-filter: blur(40px);
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.2);
+    text-align: center;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    padding: 10px 0px 0px 0px;
+  }
+  .footer__tap--text {
+    font-size: 12px;
+    letter-spacing: 7px;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: #ffc600;
+    text-align: center;
+    position: relative;
+    top: -4px;
+    -webkit-animation: text 1s linear 1s infinite alternate;
+            animation: text 1s linear 1s infinite alternate;
+  }
+  .footer ._on {
+    opacity: 1;
+    pointer-events: all;
+  }
+  @-webkit-keyframes text {
+    from {
+      top: -4px;
+    }
+    to {
+      top: -2px;
+    }
+  }
+  @keyframes text {
+    from {
+      top: -4px;
+    }
+    to {
+      top: -2px;
+    }
+  }
+  .footer__photo {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    position: relative;
+    padding: 0px 0px 33px 0px;
+  }
+  .footer__photo--1 {
+    width: 20px;
+    fill: #ffc600 !important;
+    height: 20px;
+    -webkit-transform: rotate(135deg);
+        -ms-transform: rotate(135deg);
+            transform: rotate(135deg);
+    position: absolute;
+    -webkit-animation: svg 1s linear 1s infinite alternate;
+            animation: svg 1s linear 1s infinite alternate;
+  }
+  .footer__photo--2 {
+    position: absolute;
+    top: 7px;
+    fill: #ffc600 !important;
+    fill-opacity: 0.3;
+    width: 15px;
+    height: 15px;
+    -webkit-transform: rotate(135deg);
+        -ms-transform: rotate(135deg);
+            transform: rotate(135deg);
+    -webkit-animation: svg2 1s linear 1s infinite alternate;
+            animation: svg2 1s linear 1s infinite alternate;
+  }
+  @-webkit-keyframes svg {
+    from {
+      top: -7px;
+    }
+    to {
+      top: -2px;
+    }
+  }
+  @keyframes svg {
+    from {
+      top: -7px;
+    }
+    to {
+      top: -2px;
+    }
+  }
+  @-webkit-keyframes svg2 {
+    from {
+      top: 7;
+    }
+    to {
+      top: 14px;
+    }
+  }
+  @keyframes svg2 {
+    from {
+      top: 7;
+    }
+    to {
+      top: 14px;
+    }
   }
   .footer__right {
     min-height: 101vh;
@@ -1922,39 +2059,56 @@ body {
   }
   .process__element {
     width: 100%;
+    opacity: 0;
   }
   .process__element:nth-child(1) {
     -webkit-box-ordinal-group: 2;
         -ms-flex-order: 1;
             order: 1;
+    -webkit-transform: translate3d(-50%, 0, 0);
+            transform: translate3d(-50%, 0, 0);
   }
   .process__element:nth-child(2) {
     -webkit-box-ordinal-group: 3;
         -ms-flex-order: 2;
             order: 2;
+    -webkit-transform: translate3d(50%, 0, 0);
+            transform: translate3d(50%, 0, 0);
   }
   .process__element:nth-child(3) {
     -webkit-box-ordinal-group: 5;
         -ms-flex-order: 4;
             order: 4;
+    -webkit-transform: translate3d(50%, 0, 0);
+            transform: translate3d(50%, 0, 0);
   }
   .process__element:nth-child(4) {
     -webkit-box-ordinal-group: 4;
         -ms-flex-order: 3;
             order: 3;
+    -webkit-transform: translate3d(-50%, 0, 0);
+            transform: translate3d(-50%, 0, 0);
   }
   .process__element:nth-child(5) {
     -webkit-box-ordinal-group: 6;
         -ms-flex-order: 5;
             order: 5;
+    -webkit-transform: translate3d(-50%, 0, 0);
+            transform: translate3d(-50%, 0, 0);
   }
   .process__element:nth-child(6) {
     -webkit-box-ordinal-group: 7;
         -ms-flex-order: 6;
             order: 6;
+    -webkit-transform: translate3d(50%, 0, 0);
+            transform: translate3d(50%, 0, 0);
   }
   .process__element--text {
     padding: 0px;
+  }
+  .process ._go {
+    -webkit-transform: translate3d(0, 0, 0);
+            transform: translate3d(0, 0, 0);
   }
   .process__name {
     padding: 20px 0px;

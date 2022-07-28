@@ -376,3 +376,45 @@ for (index of animatet){
    let animate = index;
    animate.classList.add('_animate--stop');
 }
+let footerLeftNav = document.querySelector('.footer__left');
+let footerPE = document.querySelector('.footer__PE');
+let next = document.querySelector('.footer__tap');
+function leftLink(){
+   console.log(footerLeftNav.scrollHeight,footerLeft.clientHeight);
+   if(footerLeftNav.scrollHeight > footerLeft.clientHeight){
+      let leftHeight = footerLeftNav.scrollHeight + "px" ;
+      footerPE.style.height = leftHeight;
+      }else{
+         let leftHeight = footerLeft.offsetHeight + "px" ;
+         footerPE.style.height = leftHeight;
+      }
+}
+leftLink();
+window.onresize = leftLink;
+window.addEventListener('resize',leftLink);
+window.addEventListener('resize',scrollFooterLeftNav);
+
+
+footerLeftNav.addEventListener('scroll',function(){
+
+   console.log(footerLeftNav.scrollTop);
+});
+function scrollFooterLeftNav(){
+   if (footerLeftNav.scrollTop<=0 && footerLeftNav.scrollHeight > footerLeft.clientHeight){
+      next.classList.add('_on');
+      }else if (footerLeftNav.scrollTop > 0 || footerLeftNav.scrollHeight <= footerLeft.clientHeight){
+      next.classList.remove('_on');
+
+      }
+}
+scrollFooterLeftNav();
+footerLeftNav.addEventListener('scroll',scrollFooterLeftNav)
+next.addEventListener('click',function(){
+   let riz = footerLeftNav.scrollHeight - footerLeft.clientHeight;
+   footerLeftNav.scroll({
+      top:riz,
+      left:0,
+      behavior:'smooth'
+
+   });
+})

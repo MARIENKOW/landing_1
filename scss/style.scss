@@ -79,8 +79,8 @@ body{
    overflow: hidden;
 }
 ._animate .container{
-      transform: scale(0.8);
-      transition: 0.4s 0.1s;
+      transform: scale(0.9);
+      transition: 0.4s;
       position: relative;
       // top: -40px;
 }
@@ -1384,7 +1384,16 @@ body{
             flex: 0 1 321px;
             margin: 0px 0px 0px 26px;
             padding:0px 10px 0px 0px;
+            overflow: auto;
+            max-height: 100%;
 
+         }
+         &__PE{
+            display: none;
+         }
+         &__tap{
+            opacity: 0;
+            pointer-events: none;
          }
          &__logo{
             font-size: 60px;
@@ -1725,24 +1734,27 @@ body{
          transition: .4s;
          // opacity: 0;
          
-         &::after{
-            position: absolute;
-            content: '';
-            top: 0;
-            background-color: rgba(0, 0, 0, 0.2);
-            left:0 ;
-            right: 0;
-            bottom: 0;
-            z-index: -1;
-            backdrop-filter: blur(15px);
-         }
          &::-webkit-scrollbar{
             display: none;
          }
       }
+      &__PE{
+         display: block;
+         position: absolute;
+         top: 0;
+         background-color: rgba(0, 0, 0, 0.2);
+         left:-100% ;
+         width: 100%;
+         z-index: 1;
+         transition:left .4s;
+         backdrop-filter: blur(15px);
+      }
       ._active .footer__left{
          left: 0;
          // opacity: 1;
+      }
+      ._active .footer__PE{
+         left: 0;
       }
       
       ._active .logo__burger{
@@ -1768,6 +1780,79 @@ body{
       }
       &__social{
          margin: 0px 0px 10px 0px;
+      }
+      &__tap{
+         position: absolute;
+         
+         left: 0;
+         bottom: 0px;
+         backdrop-filter: blur(40px);
+         width: 100%;
+         background-color: rgba(0, 0, 0, 0.2);
+         text-align: center;
+         display: flex;
+         flex-direction: column;
+         justify-content: center;
+         padding: 10px 0px 0px 0px;
+         // transition: 0.4s;
+        
+         &--text{
+            font-size: 12px;
+            letter-spacing: 7px;
+            text-transform: uppercase;
+            font-weight: 700;
+            color: $colorq;
+            text-align: center;
+            position: relative;
+            top: -4px;
+            animation: text 1s linear 1s infinite alternate;
+            
+         }
+      }
+      ._on{
+         opacity: 1;
+         pointer-events: all;
+      }
+      @keyframes text {
+         from{top: -4px;}
+         to{top: -2px;}
+         
+      }
+      &__photo{
+         display: flex;
+         flex-direction: column;
+         align-items: center;
+         position: relative;
+         padding: 0px 0px 33px 0px;
+         &--1{
+            width: 20px;
+            fill: $colorq !important;
+            height: 20px;
+            transform: rotate(135deg);
+            position: absolute;
+            animation: svg 1s linear 1s infinite alternate;
+         }
+         &--2{
+            position: absolute;
+            top: 7px;
+            fill: $colorq !important;
+            fill-opacity:0.3 ;
+            width: 15px;
+            height: 15px;
+            transform: rotate(135deg);
+            animation: svg2 1s linear 1s infinite alternate;
+            
+         }
+      }
+      @keyframes svg {
+         from{top: -7px;}
+         to{top: -2px;}
+         
+      }
+      @keyframes svg2 {
+         from{top: 7;}
+         to{top: 14px;}
+         
       }
       &__right{
          min-height: 101vh;
@@ -1823,28 +1908,38 @@ body{
       }
       &__element{
          width: 100%;
+         opacity: 0;
          &:nth-child(1){
             order:1;
+            transform: translate3d(-50%,0,0);
          }
          &:nth-child(2){
             order:2;
+            transform: translate3d(50%,0,0);
          }
          &:nth-child(3){
             order:4;
+            transform: translate3d(50%,0,0);
          }
          &:nth-child(4){
             order:3;
+            transform: translate3d(-50%,0,0);
          }
          &:nth-child(5){
             order:5;
+            transform: translate3d(-50%,0,0);
          }
          &:nth-child(6){
             order:6;
+            transform: translate3d(50%,0,0);
          }
          &--text{
             padding: 0px;
          }
          
+         }
+         ._go{
+            transform: translate3d(0,0,0);
          }
       &__name{
          padding: 20px 0px;
