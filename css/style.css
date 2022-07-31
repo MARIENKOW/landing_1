@@ -1178,6 +1178,91 @@ body {
 }
 
 /*! ///---BLOGS---\\\ !*/
+.test__inner {
+  background: url(../img/1617038939_17-p-oboi-fon-dlya-rabochego-stola-18.jpg);
+  padding: 50px 0px;
+  background-repeat: no-repeat;
+  background-position: top;
+}
+
+.swiper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  max-width: 1200px;
+  padding: 0px 40px;
+  margin: 0px auto;
+  position: relative;
+}
+.swiper__container {
+  max-width: 900px;
+  overflow: hidden;
+  margin: auto;
+  border-radius: 15px;
+  padding: 30px 0px;
+}
+.swiper__line {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  max-width: 900px;
+  -webkit-transition: 0.5s;
+  -o-transition: 0.5s;
+  transition: 0.5s;
+  padding: 50px 0px;
+}
+.swiper__item {
+  height: 300px;
+  -webkit-box-flex: 0;
+      -ms-flex-positive: 0;
+          flex-grow: 0;
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
+  position: relative;
+  -webkit-transition: 0.4s;
+  -o-transition: 0.4s;
+  transition: 0.4s;
+  padding: 2px;
+}
+.swiper__item img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.swiper__left, .swiper__right {
+  display: inline-block;
+  position: absolute;
+  font-size: 50px;
+  color: rgb(86, 86, 86);
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+      -ms-transform: translateY(-50%);
+          transform: translateY(-50%);
+  -webkit-transition: 0.1s;
+  -o-transition: 0.1s;
+  transition: 0.1s;
+  padding: 10px;
+  cursor: default;
+  background-color: rgba(255, 255, 255, 0.433);
+}
+.swiper__left:hover, .swiper__right:hover {
+  color: rgb(255, 255, 255);
+  background-color: rgba(255, 255, 255, 0.13);
+}
+.swiper__left {
+  left: 13px;
+  display: none;
+}
+.swiper__right {
+  right: 13px;
+  display: none;
+}
+.swiper ._active {
+  display: block;
+}
+
+/*! ///---SWIPER---\\\ !*/
 .contact {
   min-width: 100%;
   font-family: myriad-pro, sans-serif;
@@ -2407,5 +2492,8 @@ body {
     font-size: 11px;
     position: relative;
     z-index: 1;
+  }
+  .footer__right {
+    background-position: 65% 30%;
   }
 }

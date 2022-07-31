@@ -21,20 +21,7 @@ if (logoLinks) {
       logoLinks.classList.toggle('_active');
    });
 }
-// let testt = document.querySelector('.header__text');
-// let logoBurger = document.querySelector('.logo__burger');
-// logoBurger.addEventListener('click',function(){
-//    let all = getComputedStyle(testt);
-//    let per = "matrix(2, 0, 0, 2, 0, 0)"
-//    if(all.transform == per){
-//       testt.style.transform = "";
-//       console.log(all.transform);
-//    }else{
-//    testt.style.transform = 'scale(2)';
-//    console.log(all.transform);
 
-// }
-// })
 let galeryPhotos = document.querySelectorAll('.galery__photo');
 let about = document.querySelector('.about__link');
 let galery = document.querySelector('.galery__intro');
@@ -44,7 +31,6 @@ let about2 = document.querySelectorAll('.about__link')[2];
 let galery2 = document.querySelectorAll('.galery__intro')[2];
 let about3 = document.querySelectorAll('.about__link')[3];
 let galery3 = document.querySelectorAll('.galery__intro')[3];
-console.log(about1);
 // console.log(galery1);
 function galery12(in1,in2){
    for(let index = 0;index < galeryPhotos.length;index++){
@@ -380,7 +366,6 @@ let footerLeftNav = document.querySelector('.footer__left');
 let footerPE = document.querySelector('.footer__PE');
 let next = document.querySelector('.footer__tap');
 function leftLink(){
-   console.log(footerLeftNav.scrollHeight,footerLeft.clientHeight);
    if(footerLeftNav.scrollHeight > footerLeft.clientHeight){
       let leftHeight = footerLeftNav.scrollHeight + "px" ;
       footerPE.style.height = leftHeight;
@@ -397,7 +382,6 @@ window.addEventListener('resize',scrollFooterLeftNav);
 
 footerLeftNav.addEventListener('scroll',function(){
 
-   console.log(footerLeftNav.scrollTop);
 });
 function scrollFooterLeftNav(){
    if (footerLeftNav.scrollTop<=0 && footerLeftNav.scrollHeight > footerLeft.clientHeight){
@@ -417,4 +401,233 @@ next.addEventListener('click',function(){
       behavior:'smooth'
 
    });
+});
+
+//! ///---SWIPER---\\\ !\\
+
+/*! ///---SWIPER---\\\ !*/
+
+let swiperContainer = document.querySelector('.swiper__container');
+let swiperLine = document.querySelector('.swiper__line');
+let swiperItems = document.querySelectorAll('.swiper__item');
+let swiperLeft = document.querySelector('.swiper__left');
+let swiperRight = document.querySelector('.swiper__right');
+let countItems =3;
+let countScroll = 1;
+let tf = false;
+let x1 =null;
+let y1 =null;
+let fScroll = null;
+let itemWidth = swiperContainer.offsetWidth / countItems;
+let breakScroll = itemWidth / 2;
+itemsWidth();
+active();
+function itemsWidth(){
+   if(swiperItems.length > 0){
+      for(let i of swiperItems){
+         let swiperItem = i;
+         swiperItem.style.flexBasis = `${itemWidth}px`;
+         }
+      }
+}
+function scroll(){
+   let nn= swiperLine.style.transform
+   let da = +(nn.replace(/[^0-9,\-\.]/g,''));
+   let daa = Math.trunc(da);
+   return daa || 0;
+}
+function active(){
+   if(scroll() <0){
+      swiperLeft.classList.add('_active');
+   }else{
+      swiperLeft.classList.remove('_active');
+   }
+   if(scroll() - swiperContainer.clientWidth <= -(swiperLine.scrollWidth)){
+      swiperRight.classList.remove('_active');
+   }else{
+      swiperRight.classList.add('_active');
+   }
+}
+function hTouchStart(event){
+   let firstTouch = event.touches[0];
+   x1 = firstTouch.clientX;
+   y1 = firstTouch.clientY;
+   fScroll = scroll();
+}
+
+function itemsBack(){
+   if(swiperItems.length > 0){
+      for(let i of swiperItems){
+         let swiperItem = i;
+         let window = document.documentElement;
+         let windowWidth = window.clientWidth;
+         let swiperItemLeft = swiperItem.getBoundingClientRect().left;
+         let point1 = (windowWidth / 2) + ((swiperContainer.offsetWidth/ 2)-itemWidth/4);
+         let point2 = (windowWidth / 2) - ((swiperContainer.offsetWidth/ 2)-itemWidth/4);
+         if(swiperItemLeft >= point1){
+            swiperItem.classList.add('_back--right');
+         }else{
+            swiperItem.classList.remove('_back--right');
+         }
+         if(swiperItemLeft - itemWidth * (countScroll+1) <=point2){
+            swiperItem.classList.add('_back--left');
+
+         }else{
+            swiperItem.classList.remove('_back--left');
+         }
+         }
+      }
+}
+function itemsLeft(){
+   if(swiperItems.length > 0){
+      for(let i of swiperItems){
+         let swiperItem = i;
+         let window = document.documentElement;
+         let windowWidth = window.clientWidth;
+         let swiperItemLeft = swiperItem.getBoundingClientRect().left;
+         let point1 = (windowWidth / 2) + ((swiperContainer.offsetWidth/ 2)-itemWidth/4);
+         let point2 = (windowWidth / 2) - ((swiperContainer.offsetWidth/ 2)-itemWidth/4);
+         if(swiperItemLeft + itemWidth * 2 >= point1){
+            swiperItem.classList.add('_back--right');
+         }else{
+            swiperItem.classList.remove('_back--right');
+         }
+         if(swiperItemLeft + itemWidth <=point2){
+            swiperItem.classList.add('_back--left');
+         }else{
+            swiperItem.classList.remove('_back--left');
+         }
+      }
+   }
+}
+function itemsScrollBack(){
+   if(swiperItems.length > 0){
+      for(let i of swiperItems){
+         let swiperItem = i;
+         let window = document.documentElement;
+         let windowWidth = window.clientWidth;
+         let swiperItemLeft = swiperItem.getBoundingClientRect().left;
+         let point1 = (windowWidth / 2) + ((swiperContainer.offsetWidth/ 2)-itemWidth);
+         let point2 = (windowWidth / 2) - ((swiperContainer.offsetWidth/ 2)-itemWidth);
+         if(swiperItemLeft +(itemWidth - itemWidth*countScroll) >= point1){
+            swiperItem.classList.add('_back--right');
+         }else{
+            swiperItem.classList.remove('_back--right');
+         }
+         if(swiperItemLeft + (itemWidth - itemWidth*countScroll)<=point2){
+            swiperItem.classList.add('_back--left');
+
+         }else{
+            swiperItem.classList.remove('_back--left');
+         }
+         }
+      }
+}
+function itemsScrollLeft(){
+   if(swiperItems.length > 0){
+      for(let i of swiperItems){
+         let swiperItem = i;
+         let window = document.documentElement;
+         let windowWidth = window.clientWidth;
+         let swiperItemLeft = swiperItem.getBoundingClientRect().left;
+         let point1 = (windowWidth / 2) + ((swiperContainer.offsetWidth/ 2)-itemWidth);
+         let point2 = (windowWidth / 2) - ((swiperContainer.offsetWidth/ 2)-itemWidth);
+         if(fScroll<0){
+            if(swiperItemLeft + itemWidth *countScroll  >= point1 ){
+               swiperItem.classList.add('_back--right');
+            }else{
+               swiperItem.classList.remove('_back--right');
+            }
+            if(swiperItemLeft + itemWidth *countScroll <=point2 ){
+               swiperItem.classList.add('_back--left');
+            }else{
+               swiperItem.classList.remove('_back--left');
+            }
+         }
+      }
+   }
+}
+swiperRight.addEventListener('click',function(){
+   let tap = scroll() - itemWidth * countScroll;
+   if(swiperLine.scrollWidth + (scroll()-swiperContainer.clientWidth) >= itemWidth * countScroll){
+   swiperLine.style.transform = ('translateX('+tap+'px)');
+      }else{
+         let tap = scroll() -(swiperLine.scrollWidth + (scroll()-swiperContainer.clientWidth))
+      swiperLine.style.transform = ('translateX('+tap+'px)');
+      }
+   active();
+   itemsBack();
 })
+
+swiperLeft.addEventListener('click',function(){
+   let jnca = scroll() + itemWidth * countScroll;
+   if(scroll() <=-itemWidth * countScroll){
+   swiperLine.style.transform = ('translateX('+jnca+'px)');
+      }else{
+         swiperLine.style.transform = ('translateX(0px)');
+      }
+   active();
+   itemsLeft();
+})
+
+
+   swiperContainer.addEventListener('touchstart',hTouchStart,false);
+   swiperContainer.addEventListener('touchmove',hTouchMove,false);
+
+
+function hTouchMove(event){
+   let x2 = event.touches[0].clientX;
+   let y2 = event.touches[0].clientY;
+   let xDif = x2-x1;
+   let yDif = y2-y1;
+   if(Math.abs(xDif) > Math.abs(yDif)){
+      if (xDif>0 && xDif<100 && !fScroll ==0 || xDif<0 && xDif> -100 && (swiperLine.scrollWidth + (fScroll-swiperContainer.clientWidth)) > 0){
+         let tap = fScroll + xDif;
+         swiperLine.style.transition = ('0s');
+         swiperLine.style.transform = ('translateX('+tap+'px)');
+         tf=true;
+         swiperContainer.addEventListener('touchend',function hTouchEnd(){
+            if (tf == true ){
+               swiperLine.style.transition = '';
+               swiperLine.style.transform = ('translateX('+fScroll+'px)');
+            }
+         },false);
+      }
+      else if (xDif<-100){
+         tf=false;
+         if(swiperLine.scrollWidth + (fScroll-swiperContainer.clientWidth) >= itemWidth * countScroll){
+            let tap = fScroll - itemWidth * countScroll;
+            swiperLine.style.transition = '';
+            swiperLine.style.transform = ('translateX('+tap+'px)');
+         }else if(swiperLine.scrollWidth + (fScroll-swiperContainer.clientWidth) < itemWidth * countScroll && swiperLine.scrollWidth + (fScroll-swiperContainer.clientWidth) >0){
+            let tap = fScroll -(swiperLine.scrollWidth + (fScroll-swiperContainer.clientWidth))
+            swiperLine.style.transition = '';
+            swiperLine.style.transform = ('translateX('+tap+'px)');
+         }else if(swiperLine.scrollWidth + (fScroll-swiperContainer.clientWidth) == 0 ){
+            swiperLine.style.transform = ('translateX('+fScroll+'px)');
+         }
+            itemsScrollBack();
+            active();
+            x1,y1 = null
+      }
+      else if (xDif>100){
+         tf=false;
+         if(fScroll <=-itemWidth * countScroll){
+            let tap = fScroll + itemWidth * countScroll;
+            swiperLine.style.transition = '';
+            swiperLine.style.transform = ('translateX('+tap+'px)');
+         }else if(fScroll >-itemWidth * countScroll & !fScroll==0){
+            swiperLine.style.transform = ('translateX(0px)');
+            swiperLine.style.transition = '';
+         }
+         x1,y1 = null
+         itemsScrollLeft();
+         active();
+      }
+   }
+}
+
+
+
+
+
