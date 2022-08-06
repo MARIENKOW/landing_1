@@ -412,8 +412,18 @@ let swiperLine = document.querySelector('.swiper__line');
 let swiperItems = document.querySelectorAll('.swiper__item');
 let swiperLeft = document.querySelector('.swiper__left');
 let swiperRight = document.querySelector('.swiper__right');
-let countItems =3;
-let countScroll = 1;
+let ww = (document.documentElement).offsetWidth;
+let countItems;
+let countScroll;
+if(ww < 768){
+   countItems = 1;
+   countScroll = countItems;
+
+}else{
+   countItems = 3;
+   countScroll = 2;
+
+}
 let tf = false;
 let x1 =null;
 let y1 =null;
@@ -442,7 +452,7 @@ function active(){
    }else{
       swiperLeft.classList.remove('_active');
    }
-   if(scroll() - swiperContainer.clientWidth <= -(swiperLine.scrollWidth)){
+   if(scroll() - swiperContainer.offsetWidth <= -(swiperLine.scrollWidth)){
       swiperRight.classList.remove('_active');
    }else{
       swiperRight.classList.add('_active');
@@ -573,7 +583,11 @@ swiperLeft.addEventListener('click',function(){
 
    swiperContainer.addEventListener('touchstart',hTouchStart,false);
    swiperContainer.addEventListener('touchmove',hTouchMove,false);
-
+   // swiperContainer.addEventListener('mousedown',mouseD,false);
+   // swiperContainer.addEventListener('mousemove',mouseM,false);
+   // function mouseD(event){
+   //    let ddd = event;
+   // }
 
 function hTouchMove(event){
    let x2 = event.touches[0].clientX;
@@ -626,6 +640,7 @@ function hTouchMove(event){
       }
    }
 }
+
 
 
 

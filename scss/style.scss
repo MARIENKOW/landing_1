@@ -1135,12 +1135,15 @@ body{
 //! ///---BLOGS---\\\ !\\
 
 /*! ///---BLOGS---\\\ !*/
+.test{
+   background:linear-gradient(90deg,#010d15,#010d15b4,#010d15),url(../img/1617038939_17-p-oboi-fon-dlya-rabochego-stola-18.jpg)center / cover ;
+   background-attachment: fixed;
+   .container{
+      background-color: transparent;
+   }
+}
 .test__inner{
-   background: url(../img/1617038939_17-p-oboi-fon-dlya-rabochego-stola-18.jpg) ;
    padding: 50px 0px;
-   background-repeat: no-repeat;
-   background-position:top;
-   // position: fixed;
 }
 .swiper {
    display: flex;
@@ -2303,6 +2306,9 @@ body{
          position: relative;
          z-index: 1;
       }
+   }
+   .swiper{
+      padding: 0px 0px;
    }
    .footer{
       &__right{

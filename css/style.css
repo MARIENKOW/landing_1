@@ -1178,11 +1178,18 @@ body {
 }
 
 /*! ///---BLOGS---\\\ !*/
+.test {
+  background: -webkit-gradient(linear, left top, right top, from(#010d15), color-stop(rgba(1, 13, 21, 0.7058823529)), to(#010d15)), url(../img/1617038939_17-p-oboi-fon-dlya-rabochego-stola-18.jpg) center/cover;
+  background: -o-linear-gradient(left, #010d15, rgba(1, 13, 21, 0.7058823529), #010d15), url(../img/1617038939_17-p-oboi-fon-dlya-rabochego-stola-18.jpg) center/cover;
+  background: linear-gradient(90deg, #010d15, rgba(1, 13, 21, 0.7058823529), #010d15), url(../img/1617038939_17-p-oboi-fon-dlya-rabochego-stola-18.jpg) center/cover;
+  background-attachment: fixed;
+}
+.test .container {
+  background-color: transparent;
+}
+
 .test__inner {
-  background: url(../img/1617038939_17-p-oboi-fon-dlya-rabochego-stola-18.jpg);
   padding: 50px 0px;
-  background-repeat: no-repeat;
-  background-position: top;
 }
 
 .swiper {
@@ -2492,6 +2499,9 @@ body {
     font-size: 11px;
     position: relative;
     z-index: 1;
+  }
+  .swiper {
+    padding: 0px 0px;
   }
   .footer__right {
     background-position: 65% 30%;
