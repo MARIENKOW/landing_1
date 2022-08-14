@@ -202,7 +202,6 @@ body{
       // padding:70px 0px  0px 46px;
       display: block;
       max-width: 100%;
-      
       @include adaptiv-value("padding-top",70,12 ,1 );
       // @include adaptiv-value("padding-left",46,8 ,1 );
       @include adaptiv-value("margin-left",46,8 ,1 );

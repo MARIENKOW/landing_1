@@ -103,7 +103,6 @@ if(footerLinks.length >0){
 }
 //! ///----------------\\\ !\\
 let logos = document.querySelectorAll('.logo__link');
-console.log(logos);
 if(logos.length >0){
    for(let i = 0;i<logos.length;i++){
       let logo = logos[i];
@@ -222,6 +221,7 @@ let swiperLine = document.querySelector('.swiper__line');
 let swiperItems = document.querySelectorAll('.swiper__item');
 let swiperLeft = document.querySelector('.swiper__left');
 let swiperRight = document.querySelector('.swiper__right');
+let body = document.querySelector('body');
 let ww = (document.documentElement).offsetWidth;
 let countItems;
 let countScroll;
@@ -274,8 +274,9 @@ function hTouchStart(event){
    x1 = firstTouch.clientX;
    y1 = firstTouch.clientY;
    fScroll = scroll();
-}
+   body.style.overflow = 'hidden';
 
+}
 function itemsBack(){
    if(swiperItems.length > 0){
       for(let i of swiperItems){
@@ -283,14 +284,16 @@ function itemsBack(){
          let window = document.documentElement;
          let windowWidth = window.clientWidth;
          let swiperItemLeft = swiperItem.getBoundingClientRect().left;
-         let point1 = (windowWidth / 2) + ((swiperContainer.offsetWidth/ 2)-itemWidth/4);
-         let point2 = (windowWidth / 2) - ((swiperContainer.offsetWidth/ 2)-itemWidth/4);
-         if(swiperItemLeft >= point1){
+         let swiperItemRight = swiperItem.getBoundingClientRect().right;
+         let point1 = (windowWidth / 2) + ((swiperContainer.offsetWidth/ 2)-itemWidth/2);
+         let point2 = (windowWidth / 2) - ((swiperContainer.offsetWidth/ 2)-itemWidth/2);
+         console.log(parseInt(swiperItemLeft),parseInt(swiperItemRight),point1)
+         if(swiperItemRight-itemWidth* countScroll > point1){
             swiperItem.classList.add('_back--right');
          }else{
             swiperItem.classList.remove('_back--right');
          }
-         if(swiperItemLeft - itemWidth * (countScroll+1) <=point2){
+         if(swiperItemLeft- itemWidth * countScroll<point2){
             swiperItem.classList.add('_back--left');
 
          }else{
@@ -306,15 +309,17 @@ function itemsLeft(){
          let window = document.documentElement;
          let windowWidth = window.clientWidth;
          let swiperItemLeft = swiperItem.getBoundingClientRect().left;
+         let swiperItemRight = swiperItem.getBoundingClientRect().right;
          let point1 = (windowWidth / 2) + ((swiperContainer.offsetWidth/ 2)-itemWidth/4);
          let point2 = (windowWidth / 2) - ((swiperContainer.offsetWidth/ 2)-itemWidth/4);
-         if(swiperItemLeft + itemWidth * 2 >= point1){
+         if(swiperItemRight+itemWidth* countScroll > point1){
             swiperItem.classList.add('_back--right');
          }else{
             swiperItem.classList.remove('_back--right');
          }
-         if(swiperItemLeft + itemWidth <=point2){
+         if(swiperItemLeft+ itemWidth * countScroll<point2){
             swiperItem.classList.add('_back--left');
+
          }else{
             swiperItem.classList.remove('_back--left');
          }
@@ -328,16 +333,16 @@ function itemsScrollBack(){
          let window = document.documentElement;
          let windowWidth = window.clientWidth;
          let swiperItemLeft = swiperItem.getBoundingClientRect().left;
+         let swiperItemRight = swiperItem.getBoundingClientRect().right;
          let point1 = (windowWidth / 2) + ((swiperContainer.offsetWidth/ 2)-itemWidth);
          let point2 = (windowWidth / 2) - ((swiperContainer.offsetWidth/ 2)-itemWidth);
-         if(swiperItemLeft +(itemWidth - itemWidth*countScroll) >= point1){
+         if(swiperItemLeft <= point1 && swiperItemRight>= point1){
             swiperItem.classList.add('_back--right');
          }else{
             swiperItem.classList.remove('_back--right');
          }
-         if(swiperItemLeft + (itemWidth - itemWidth*countScroll)<=point2){
+         if(swiperItemLeft<point2 && swiperItemRight> point2){
             swiperItem.classList.add('_back--left');
-
          }else{
             swiperItem.classList.remove('_back--left');
          }
@@ -351,16 +356,18 @@ function itemsScrollLeft(){
          let window = document.documentElement;
          let windowWidth = window.clientWidth;
          let swiperItemLeft = swiperItem.getBoundingClientRect().left;
-         let point1 = (windowWidth / 2) + ((swiperContainer.offsetWidth/ 2)-itemWidth);
-         let point2 = (windowWidth / 2) - ((swiperContainer.offsetWidth/ 2)-itemWidth);
+         let swiperItemRight = swiperItem.getBoundingClientRect().right;
+         let point1 = (windowWidth / 2) + ((swiperContainer.offsetWidth/ 2)-itemWidth/2);
+         let point2 = (windowWidth / 2) - ((swiperContainer.offsetWidth/ 2)-itemWidth/2);
          if(fScroll<0){
-            if(swiperItemLeft + itemWidth *countScroll  >= point1 ){
+            if(swiperItemRight+itemWidth* countScroll > point1){
                swiperItem.classList.add('_back--right');
             }else{
                swiperItem.classList.remove('_back--right');
             }
-            if(swiperItemLeft + itemWidth *countScroll <=point2 ){
+            if(swiperItemLeft+ itemWidth * countScroll<point2){
                swiperItem.classList.add('_back--left');
+   
             }else{
                swiperItem.classList.remove('_back--left');
             }
@@ -369,6 +376,8 @@ function itemsScrollLeft(){
    }
 }
 swiperRight.addEventListener('click',function(){
+   itemsBack();
+
    let tap = scroll() - itemWidth * countScroll;
    if(swiperLine.scrollWidth + (scroll()-swiperContainer.clientWidth) >= itemWidth * countScroll){
    swiperLine.style.transform = ('translateX('+tap+'px)');
@@ -377,7 +386,6 @@ swiperRight.addEventListener('click',function(){
       swiperLine.style.transform = ('translateX('+tap+'px)');
       }
    active();
-   itemsBack();
 })
 
 swiperLeft.addEventListener('click',function(){
@@ -394,6 +402,11 @@ swiperLeft.addEventListener('click',function(){
 
    swiperContainer.addEventListener('touchstart',hTouchStart,false);
    swiperContainer.addEventListener('touchmove',hTouchMove,false);
+   swiperContainer.addEventListener('touchend',hTouchEnd,false);
+   function hTouchEnd(){
+      body.style.overflow = '';
+   }
+
    // swiperContainer.addEventListener('mousedown',mouseD,false);
    // swiperContainer.addEventListener('mousemove',mouseM,false);
    // function mouseD(event){
@@ -406,7 +419,7 @@ function hTouchMove(event){
    let xDif = x2-x1;
    let yDif = y2-y1;
    if(Math.abs(xDif) > Math.abs(yDif)){
-      if (xDif>0 && xDif<100 && !fScroll ==0 || xDif<0 && xDif> -100 && (swiperLine.scrollWidth + (fScroll-swiperContainer.clientWidth)) > 0){
+      if (xDif>0 && xDif<50 && !fScroll ==0 || xDif<0 && xDif> -50 && (swiperLine.scrollWidth + (fScroll-swiperContainer.clientWidth)) > 0){
          let tap = fScroll + xDif;
          swiperLine.style.transition = ('0s');
          swiperLine.style.transform = ('translateX('+tap+'px)');
@@ -418,7 +431,8 @@ function hTouchMove(event){
             }
          },false);
       }
-      else if (xDif<-100){
+      else if (xDif<-50){
+         itemsScrollBack();
          tf=false;
          if(swiperLine.scrollWidth + (fScroll-swiperContainer.clientWidth) >= itemWidth * countScroll){
             let tap = fScroll - itemWidth * countScroll;
@@ -431,11 +445,11 @@ function hTouchMove(event){
          }else if(swiperLine.scrollWidth + (fScroll-swiperContainer.clientWidth) == 0 ){
             swiperLine.style.transform = ('translateX('+fScroll+'px)');
          }
-            itemsScrollBack();
             active();
             x1,y1 = null
       }
-      else if (xDif>100){
+      else if (xDif>50){
+         itemsScrollLeft();
          tf=false;
          if(fScroll <=-itemWidth * countScroll){
             let tap = fScroll + itemWidth * countScroll;
@@ -446,12 +460,11 @@ function hTouchMove(event){
             swiperLine.style.transition = '';
          }
          x1,y1 = null
-         itemsScrollLeft();
          active();
       }
    }
 }
-const A = () => {
-console.log('hello');
-}
-A();
+// const A = () => {
+// console.log('hello');
+// }
+// A();
