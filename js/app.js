@@ -274,7 +274,6 @@ function hTouchStart(event){
    x1 = firstTouch.clientX;
    y1 = firstTouch.clientY;
    fScroll = scroll();
-   body.style.overflow = 'hidden';
 
 }
 function itemsBack(){
@@ -420,6 +419,7 @@ function hTouchMove(event){
    let yDif = y2-y1;
    if(Math.abs(xDif) > Math.abs(yDif)){
       if (xDif>0 && xDif<50 && !fScroll ==0 || xDif<0 && xDif> -50 && (swiperLine.scrollWidth + (fScroll-swiperContainer.clientWidth)) > 0){
+         body.style.overflow = 'hidden';
          let tap = fScroll + xDif;
          swiperLine.style.transition = ('0s');
          swiperLine.style.transform = ('translateX('+tap+'px)');
