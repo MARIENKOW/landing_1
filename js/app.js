@@ -238,19 +238,26 @@ let tf = false;
 let x1 =null;
 let y1 =null;
 let fScroll = null;
-const swiperWidth = swiperContainer.offsetWidth;
+let swiperWidth = swiperContainer.clientWidth;
+console.log(swiperContainer,swiperContainer.clientWidth);
 let itemWidth = swiperWidth / countItems;
 let breakScroll = itemWidth / 2;
 itemsWidth();
 active();
 function itemsWidth(){
    if(swiperItems.length > 0){
+      console.log('kkkk')
       for(let i of swiperItems){
          let swiperItem = i;
+
+let swiperWidth = swiperContainer.clientWidth;
+let itemWidth = swiperWidth / countItems;
+
          swiperItem.style.flexBasis = `${itemWidth}px`;
          }
       }
 }
+window.addEventListener('resize',itemsWidth)
 function scroll(){
    let nn= swiperLine.style.transform
    let da = +(nn.replace(/[^0-9,\-\.]/g,''));

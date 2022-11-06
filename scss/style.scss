@@ -1151,7 +1151,7 @@ body{
    margin:0px auto;
    position: relative;
    &__container {
-      max-width: 900px;
+      flex: 0 1 900px;
       overflow: hidden;
       margin: auto;
       border-radius: 15px;

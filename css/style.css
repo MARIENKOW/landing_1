@@ -1202,7 +1202,9 @@ body {
   position: relative;
 }
 .swiper__container {
-  max-width: 900px;
+  -webkit-box-flex: 0;
+      -ms-flex: 0 1 900px;
+          flex: 0 1 900px;
   overflow: hidden;
   margin: auto;
   border-radius: 15px;
